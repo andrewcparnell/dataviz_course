@@ -1,0 +1,67 @@
+---
+title: 'Class 3: Customisation of ggplots'
+author: Andrew Parnell \newline \texttt{andrew.parnell@mu.ie}   \newline \vspace{1cm}
+  \newline \includegraphics[width=3cm]{maynooth_uni_logo.jpg}
+  \newline \vspace{1cm}
+  https://andrewcparnell.github.io/dataviz_course 
+  \newline PRESS RECORD 
+output:
+  beamer_presentation:
+    includes:
+      in_header: header.tex
+classoption: "aspectratio=169"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(dev = 'pdf')
+par(mar=c(3,3,2,1), mgp=c(2,.7,0), tck=-.01,las=1)
+```
+
+## Learning outcomes
+
+- A
+- B
+- C
+
+## Topic A
+
+## Changing axis formats using the scales package
+
+
+## Changing lines and points
+
+
+## Adding smoothers and other geoms
+
+
+## Rug plots
+
+
+## Facets
+
+
+## Text labels and annotations
+
+
+## Adding lines
+
+## Specifying colour palettes
+
+## Jittering
+
+
+
+## Plotting data with uncertainty
+
+## Density plots
+
+## Other bespoke plotting features
+
+Individual features for bars, boxplots, densities, 
+
+
+## Summary
+
+- X
+- Y
+- Z

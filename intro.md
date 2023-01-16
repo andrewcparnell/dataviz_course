@@ -6,7 +6,7 @@ This course will cover the basics of data visualisation for understanding and in
 
 The course will run using the R programming language, with a focus on the ggplot2 package and its extensions. The first day covers many of the basics of this approach, whilst the second day covers extensions into higher dimensional data analysis, interactive visualisations, and visualising statistical and machine learning model output.  
 
-The course material was developed in collaboration with Dr Catherine Hurley at Maynooth University. 
+The course matertial was developed in collaboration with Dr Catherine Hurley at Maynooth University. 
 
 ## Intended audience
 
@@ -16,8 +16,8 @@ Research postgraduates, practicing academics, or other professionals from any fi
 
 Participants should have :
 
- - Good familiarity with R including the ability to import/export data, manipulate data frames using `dplyr`, fit basic statistical models, and generate simple exploratory and diagnostic plots.
- - A laptop/personal computer with a working version or R and RStudio installed. R and RStudio are supported by both PC and Mac and can be downloaded for free by following these links: [R](http://cran.r-project.org), [Rstudio](http://www.rstudio.com/products/rstudio/download/).
+ - Some familiarity with R including the ability to import/export data, manipulate data frames, fit basic statistical models, and generate simple exploratory and diagnostic plots.
+  - A laptop/personal computer with a working version or R and RStudio installed. R and RStudio are supported by both PC and Mac and can be downloaded for free by following these links: [R](http://cran.r-project.org), [Rstudio](http://www.rstudio.com/products/rstudio/download/).
 
 All students should visit the [pre-requisites page](https://andrewcparnell.github.io/dataviz_course/prerequisites.html) to make sure they have all the relevant packages installed before starting. 
 

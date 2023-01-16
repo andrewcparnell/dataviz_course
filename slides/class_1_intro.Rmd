@@ -1,0 +1,275 @@
+---
+title: 'Class 1: An introduction to data visualisation'
+author: Andrew Parnell \newline \texttt{andrew.parnell@mu.ie}   \newline \vspace{1cm}
+  \newline \includegraphics[width=3cm]{maynooth_uni_logo.jpg}
+  \newline \vspace{1cm}
+  \newline PRESS RECORD 
+  https://andrewcparnell.github.io/dataviz_course 
+output:
+  beamer_presentation:
+    includes:
+      in_header: header.tex
+classoption: "aspectratio=169"
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(dev = "pdf")
+par(mar = c(3, 3, 2, 1), mgp = c(2, .7, 0), tck = -.01, las = 1)
+library(tidyverse)
+```
+
+## Let's get started
+
+- About me
+- Tell me:
+    
+    - who you are, 
+    - where you are from,
+    - your previous experience in working with R and visualisation,
+    - what you are working on,
+    - what you want to get out of the course,
+
+- Timetable for the course
+- Pre-requisites
+
+## How this course works
+
+- This course lives on GitHub, which means anyone can see the slides, code, etc, and make comments on it
+- The timetable document (`index.html`) provides links to all the pdf slides and practicals
+- The slides and the practicals are all written in `Rmarkdown` format, which means you can load them up in Rstudio and see how everything was created
+- Let me know if you spot mistakes, as these can be easily updated on the GitHub page
+- There is a `dataviz_course.Rproj` R project file from which you should be able to run all the code
+
+## Copyright statement
+
+All the non-GitHub materials provided in the Introduction to Data Visualisation are copyright of Andrew Parnell and Catherine Hurley.
+
+This means:
+
+- As a user (the student) you have permission (licence) to access the materials to aid and
+support your individual studies.
+- You are not permitted to copy or distribute any materials without the relevant permission
+- As faculty we may reserve the right to remove a user in the event of any possible infringement
+
+## Course format and other details
+
+- Lectures will take place in the morning via Zoom, practical classes in the afternoon
+- In the practical classes I will go round the room asking people how they are getting on
+- If you want to send me a private message use Slack
+- Please ask lots of questions, but __MUTE YOUR MICROPHONE__ when not asking them
+- Some good resources:
+
+    - [Data Visualisation](https://r4ds.had.co.nz/data-visualisation.html) (chapter) by Hadley Wickham
+    - [ggplot2 reference guide](https://ggplot2.tidyverse.org)
+    - [The psychology of data visualisation](https://friendly.github.io/6135/) by Michael Friendly
+    - [Philosphy of visualisation](http://vita.had.co.nz/papers/layered-grammar.pdf) by Hadley Wickhame
+    - [Fundamentals of data visualisation](https://clauswilke.com/dataviz/) by Claus Wilke
+    - [Stack Overflow](https://stackoverflow.com/questions/tagged/ggplot2)
+
+## Why visualise data?
+
+```{r}
+library(datasauRus)
+datasaurus_four <- datasaurus_dozen %>%
+  filter(str_detect(
+    dataset,
+    "(dino|bullseye|star|x_shape)"
+  ))
+datasaurus_four %>% summary()
+```
+
+## Summarise as a table...
+
+\small
+
+::: columns
+
+:::: column
+```{r, eval = FALSE}
+datasaurus_four %>%
+  group_by(dataset) %>%
+  summarize(
+    mean_x = mean(x),
+    mean_y = mean(y),
+    std_dev_x = sd(x),
+    std_dev_y = sd(y),
+    corr_x_y = cor(x, y)
+  )
+```
+
+::::
+
+:::: column
+```{r, echo = FALSE}
+datasaurus_four %>%
+  group_by(dataset) %>%
+  summarize(
+    mean_x = mean(x),
+    mean_y = mean(y),
+    std_dev_x = sd(x),
+    std_dev_y = sd(y),
+    corr_x_y = cor(x, y)
+  )
+```
+::::
+:::
+
+## Do some linear regressions?
+
+```{r}
+datasaurus_four %>%
+    group_by(dataset) %>% 
+    summarize(
+      intercept = lm(y ~ x)$coefficients[1],
+      slope = lm(y ~ x)$coefficients[2]
+    )
+```
+
+## ... or as a plot
+
+```{r}
+ggplot(datasaurus_four, aes(x = x, y = y, colour = dataset)) +
+  geom_point() +
+  theme_void() +
+  theme(legend.position = "none") +
+  facet_wrap(~dataset, ncol = 4)
+```
+
+## Introduction to example data sets used in the course: 
+
+- All used data sets in this course are either in the `data` directory or come from packages
+- The `data_desciption.txt` file in the data directory contains a list of all the fields and references
+- Look at the help file for the data sets that come from packages to see the full list of fields
+
+## `palmerpenguins`
+
+\small 
+```{r}
+library(palmerpenguins)
+penguins %>% glimpse()
+```         
+
+## Swiss Willow Tits
+
+3 replicate measurements on whether Swiss Willow Tits were found with covariates on forest cover and elevation
+
+\small 
+
+```{r, echo=FALSE}
+swt <- read.csv("../data/swt.csv")
+head(swt)
+```
+\normalsize
+
+- How do the covariates affect the chance of finding the birds?
+- Are these effects linear?
+- What do we do with the missing data?
+
+## Palaeoclimate pollen data
+
+A set of modern pollen counts and their associated climates. The variables are: GDD5 (Growing degree days about 5C), MTCO (Mean temperature of the coldest month), pollen counts of taxa (Abies - Graminaea). 
+
+\small 
+
+```{r, echo=FALSE}
+pollen <- read.csv("../data/pollen.csv")
+head(pollen)
+```
+
+\normalsize
+
+- How are pollen species affected by these climate variables?
+- Are these effects linear?
+- Are their relationships between the pollen taxa?
+
+## A checklist for data visualisation
+
+- What is the message you are trying to convey?
+- What medium will the visualisation be displayed in (paper/poster/screen/interactive/...)?
+- How much space do you have?
+- How much explanation can you give to accompany the visualisation?
+- What size will the visualisation be?
+- Will colour and transparency be allowed?
+- How long will people spend looking at the visualisation?
+
+## Reminder of basic data types and their influence on visualisation tools
+
+Lots of different categorisations of data but the most important ones are:
+
+- Categorical data (e.g. names)
+- Ordinal data (e.g. agreement levels)
+- Continuous data (e.g. height in cm)
+
+Visualisations usually involve multiple variables, often of different types
+
+The data type will often strongly guide the choice of visualisation
+
+## Some basic plot types: 1 Bar charts
+
+```{r, echo = FALSE}
+ggplot(penguins, aes(x = species)) + 
+  geom_bar() + 
+  xlab("Species") + 
+  ylab("Count")
+```
+
+## Some basic plot types: 2 Histograms
+
+```{r, echo = FALSE}
+ggplot(penguins, aes(x = body_mass_g)) + 
+  geom_histogram(bins = 30) + 
+  xlab("Body mass (g)")
+```
+
+## Some basic plot types: 3 Boxplots
+
+```{r, echo = FALSE}
+ggplot(penguins, aes(x = species, y = body_mass_g)) + 
+  geom_boxplot() + 
+  xlab("Species") + 
+  ylab("Body mass (g)")
+```
+
+## Some basic plot types: 4 Scatter plots
+
+```{r}
+ggplot(data = penguins, 
+       aes(x = bill_length_mm, y = flipper_length_mm)) + 
+  geom_point() + 
+  xlab("Bill length (mm)") + 
+  ylab("Flipper length (mm)") + 
+  coord_fixed()
+```
+
+## 10 basic rules for plotting 
+
+1. Avoid ink that isn't representing the data
+1. Avoid outlines; try to fill things in if you can. Use transparency
+1. Don't use 3D visualisations
+1. Don't use pie charts. Ever
+1. Write clear and informative captions/titles appropriate for the medium
+1. Try to label interesting features of a plot directly
+1. Use colour carefully; try to avoid too many colours
+1. If you must have a legend then think carefully about the labelling
+1. Use small number of multiple figures (facets)
+1. Think about the units of the axes - should a plot be square or rectangular?
+
+## Exercise: try and list 5 things that are bad about the following plot
+
+```{r}
+plot(penguins$bill_length_mm, penguins$flipper_length_mm)
+```
+
+<!-- Bad axis labels. No title. Too much white space. Potential overlapping points. Bad orientation of vertical axis labels. Too much distance between the axis labels and the axis. Hard to measure points in the middle of the graph without gridlines -->
+
+
+
+## Summary
+
+- 
+
+- Y
+
+- Z

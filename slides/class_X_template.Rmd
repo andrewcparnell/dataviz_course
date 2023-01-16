@@ -1,0 +1,61 @@
+---
+title: 'Class X: Topic.'
+author: Andrew Parnell \newline \texttt{andrew.parnell@mu.ie}   \newline \vspace{1cm}
+  \newline \includegraphics[width=3cm]{maynooth_uni_logo.jpg}
+  \newline \vspace{1cm}
+  https://andrewcparnell.github.io/dataviz_course 
+  \newline PRESS RECORD 
+output:
+  beamer_presentation:
+    includes:
+      in_header: header.tex
+classoption: "aspectratio=169"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(dev = 'pdf')
+par(mar=c(3,3,2,1), mgp=c(2,.7,0), tck=-.01,las=1)
+library(tidyverse)
+```
+
+## Learning outcomes
+
+- A
+- B
+- C
+
+## Topic A
+
+- Bullet items
+
+
+## Equation
+
+$$f(x; \lambda) = \frac{e^{-\lambda} \lambda^x}{x!}$$
+
+## R code
+
+```{r}
+x = c(-0.23, -0.97, -1.94, -2.08, 2.55, 
+      0.8, -0.03, -0.79, -0.6, 1.75)
+```
+
+## A plot
+
+
+```{r, fig.height = 5}
+qqnorm(x)
+qqline(x)
+```
+
+## An external figure
+
+<!-- \begin{center} -->
+<!-- \includegraphics[width=4cm]{Thomas_Bayes.pdf} -->
+<!-- \end{center} -->
+
+## Summary
+
+- X
+- Y
+- Z

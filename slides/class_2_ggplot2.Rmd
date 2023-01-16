@@ -1,0 +1,170 @@
+---
+title: 'Class 2: Introduction to ggplot2'
+author: Andrew Parnell \newline \texttt{andrew.parnell@mu.ie}   \newline \vspace{1cm}
+  \newline \includegraphics[width=3cm]{maynooth_uni_logo.jpg}
+  \newline \vspace{1cm}
+  \newline PRESS RECORD 
+  https://andrewcparnell.github.io/dataviz_course 
+output:
+  beamer_presentation:
+    includes:
+      in_header: header.tex
+classoption: "aspectratio=169"
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(dev = 'pdf')
+par(mar=c(3,3,2,1), mgp=c(2,.7,0), tck=-.01,las=1)
+library(tidyverse)
+```
+
+## Learning outcomes
+
+- Learn the basics of how to use `ggplot2`
+- Be able to add simple features to existing ggplots
+- Be able to perform basic customisation of ggplots
+
+## The philosophy behind the grammar of graphics
+
+- The `gg` in `ggplot2` stands for grammar of graphics. The idea is that to build a graphic we need a good grammar, just like we need grammar to write sentences
+- The graphical grammar is built from geometric objects, scales and a coordinate system which are layered on top of each other
+- Extra layers can be added which might alter the scales, split the plot into multiple panels, change colours, etc
+- `ggplot2` requires just a few of these components to be specified, and then cleverly works out from your data what appropriate values should be used to create the plot
+
+## Reminder: the penguin data
+
+```{r}
+library(palmerpenguins)
+penguins %>% glimpse
+```
+
+
+## Data formats, aesthetics, geoms
+
+Every ggplot has:
+
+- A data set (usually a data frame or a tibble)
+- An __(aes)thetic__ which maps the data to graphical elements
+- A __(geom)etry__ which types of graphical elements to display
+
+\begin{center}
+\includegraphics[width=8cm]{aes.png}
+\end{center}
+
+(From [Fundamentals of Data Visualisation](https://clauswilke.com/dataviz))
+
+## An example ggplot
+
+```{r}
+ggplot(data = penguins, 
+       aes(x = bill_length_mm, y = flipper_length_mm)) + 
+  geom_point()
+```
+
+(Why is this better than the plot from class 1?)
+
+## Some basic plot types: 1 Bar charts
+
+```{r}
+ggplot(penguins, aes(x = island)) + 
+  geom_bar()
+```
+
+## Some basic plot types: 2 Histograms
+
+```{r}
+ggplot(penguins, aes(x = flipper_length_mm)) + 
+  geom_histogram(bins = 30)
+```
+
+## Some basic plot types: 3 Boxplots
+
+```{r}
+ggplot(penguins, aes(x = sex, y = bill_length_mm)) + 
+  geom_boxplot()
+```
+
+## Some basic plot types: 4 Scatter plots
+
+```{r}
+ggplot(data = penguins, 
+       aes(x = bill_length_mm, y = body_mass_g)) + 
+  geom_point()
+```
+
+# Basic plot customisation and themes
+
+## Labels and titles
+
+Use `labs`:
+
+```{r, eval = FALSE}
+ggplot(data = penguins, 
+       aes(x = bill_length_mm, y = body_mass_g)) + 
+  geom_point() + 
+  labs(
+    title = "Bill length vs body mass",
+    subtitle = "Penguin data set",
+    x = "Bill length (mm)",
+    y = "Body mass (g)",
+  )
+```
+
+or you can specify these individually with, e.g. `+ xlab("Bill length")`
+
+## Adding colour
+
+Add colour as another aesthetic:
+
+```{r}
+ggplot(data = penguins, 
+       aes(x = bill_length_mm, y = body_mass_g, colour = species)) + 
+  geom_point()
+```
+
+(see later for manually specifying colour palettes)
+
+## Changing point types
+
+```{r}
+ggplot(data = penguins, 
+       aes(x = bill_length_mm, y = body_mass_g, 
+           shape = species, size = species)) + 
+  geom_point()
+```
+
+## Changing the coordinates
+
+```{r}
+ggplot(data = penguins, 
+       aes(x = bill_length_mm, y = flipper_length_mm)) + 
+  geom_point() + 
+  coord_fixed()
+```
+
+
+## Some notes
+
+- The aesthetic can go inside the `ggplot` or inside the `geom`
+- If you put it inside the `ggplot` function it will persist across later layers
+- By contrast if you put it inside the geom it only works for that layer
+
+## Exercise
+
+Every body spend 2 minutes taking this plot command and adding basic customisation to it
+
+```{r}
+ggplot(data = penguins, 
+       aes(x = sex, y = flipper_length_mm)) + 
+  geom_boxplot()
+```
+
+
+
+## Summary
+
+- Most of the hard work with `ggplot2` is getting your data into the right format
+- Y
+- Z
