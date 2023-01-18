@@ -1,0 +1,175 @@
+---
+title: 'Class 4: High dimensional visualisation'
+author: Andrew Parnell \newline \texttt{andrew.parnell@mu.ie}   \newline \vspace{1cm}
+  \newline \includegraphics[width=3cm]{maynooth_uni_logo.jpg}
+  \newline \vspace{1cm}
+  \newline PRESS RECORD 
+  https://andrewcparnell.github.io/dataviz_course 
+output:
+  beamer_presentation:
+    includes:
+      in_header: header.tex
+classoption: "aspectratio=169"
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(dev = 'pdf')
+par(mar=c(3,3,2,1), mgp=c(2,.7,0), tck=-.01,las=1)
+library(tidyverse)
+```
+
+## Learning outcomes
+
+- Learn how to create multiple scatter plots
+- Plot some map data
+- Plot some time series data
+- Use some of the 3D geoms
+- Last session mostly using ggplot
+
+## New data set for this session
+
+Geese isotopes: Two isotopes taken from the blood plasms of geese together with information about each of the birds
+
+```{r}
+geese <- read.csv('../data/geese_isotopes.csv')
+geese %>%  glimpse
+```
+
+## Multiple scatter plots: `pairs`
+
+Base R plot
+
+```{r}
+pairs(geese)
+```
+
+## ggplot version using package `GGally`
+
+```{r}
+library(GGally)
+ggpairs(geese)
+```
+
+Very customisable too - can change what the upper, lower and diagonal panels contain or add colours to different groups
+
+## Visualise correlations
+
+```{r}
+library(corrplot)
+corrplot(cor(geese)) # Note: need a correlation matrix!
+```
+
+Again very customisable
+
+## 2D density plots
+
+`ggplot2` has specific functions for plotting 3D density data
+
+```{r}
+ggplot(geese, aes(x = d15NPl, y = d13CPl)) + 
+  geom_bin_2d()
+```
+
+- There are related functions `geom_tile` and `geom_raster` when you have a variable by which you want to colour the pixels. 
+
+## Contour plots
+
+```{r}
+ggplot(geese, aes(x = d15NPl, y = d13CPl)) + 
+  geom_density_2d_filled()
+```
+
+- Again, use `geom_contour` if you have a variable to directly create the contour values
+
+## Hexagonal plots
+
+```{r}
+ggplot(geese, aes(x = d15NPl, y = d13CPl)) + 
+  geom_hex()
+```
+
+## Plotting data with maps
+
+- Most base R plots of maps are ugly. `ggplot` has an interface to the `maps` package but these are quite ugly and out of date
+-Better package are `ggspatial` and `sf` (simple features) which have loads of examples and interfaces for both base R and ggplots
+- Three common use cases:
+
+  - You want to take a map of an area and add information to it by filling in the areas or placing points on the map
+  - You want to take an e.g. Google (raster) map and add information on top
+  - You have your own shape file and want to create a plot on top of that (not covered -- see `read_sf`)
+  
+## Some mapping data
+
+```{r}
+library(maps)
+norway <- map_data("world", "norway")
+norway %>% glimpse
+```
+
+# Scenario 1: adding information to a map of a given area
+
+```{r}
+ggplot(norway, aes(long, lat, group = group)) +
+  geom_polygon(fill = "white", colour = "grey50") + 
+  coord_quickmap()
+```
+
+## Adding information
+
+```{r}
+# norway_vals <- tibble(
+#   subregion = unique(norway$subregion),
+#   value = 1:length(unique(norway$subregion))
+# )
+# norway %>% left_join(norway_vals, 
+#                      by = 'subregion') %>% 
+#   ggplot(aes(long, lat, group = group)) +
+#   geom_polygon(fill = "white", colour = "grey50") + 
+#   coord_quickmap()
+```
+
+## Scenario 2: overlaying an existing web map
+
+
+
+## Common problems with chloropleth maps
+
+\includegraphics[width=7cm]{election_map.png}
+
+From [Wikipedia](https://en.wikipedia.org/wiki/Choropleth_map#/media/File:U.S._Presidential_election_margin,_2004-2016.png)
+
+## Plotting time series data
+
+Sea level data set:
+
+```{r}
+sl_month <- read.csv('../data/sea_level_monthly.csv')
+glimpse(sl_month)
+```
+
+## Plots of time series
+
+```{r}
+sl_month %>% 
+  mutate(Year2 = lubridate::date_decimal(Year)) %>%
+  ggplot(aes(x = Year2, y = GMSL_mm)) + 
+  geom_line() + 
+  scale_x_datetime(date_breaks = "20 years",
+                   date_labels = "%Y-%M")
+```
+
+
+## Dimension reduction and visualisation
+
+Package `ggfortify`
+
+## Exercise
+
+
+## Summary
+
+- X
+- Y
+- Z

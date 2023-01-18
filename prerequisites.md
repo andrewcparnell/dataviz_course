@@ -20,7 +20,7 @@ Install the following using the corresponding links
 
 Now install the following packages by going into Rstudio (or R) by typing:
 ```{r,eval=FALSE}
-install.packages(c('tidyverse', 'palmerpenguins', 'datasauRus'))
+install.packages(c('tidyverse', 'palmerpenguins', 'datasauRus', 'patchwork', "GGally", "corrplot", "hexbin", "maps", "sf", "ggspatial"))
 ```
 
 ### Troubleshooting

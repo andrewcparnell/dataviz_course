@@ -64,9 +64,14 @@ support your individual studies.
     - [Data Visualisation](https://r4ds.had.co.nz/data-visualisation.html) (chapter) by Hadley Wickham
     - [ggplot2 reference guide](https://ggplot2.tidyverse.org)
     - [The psychology of data visualisation](https://friendly.github.io/6135/) by Michael Friendly
+    - The [ggplot2 book](https://ggplot2-book.org)
     - [Philosphy of visualisation](http://vita.had.co.nz/papers/layered-grammar.pdf) by Hadley Wickhame
     - [Fundamentals of data visualisation](https://clauswilke.com/dataviz/) by Claus Wilke
     - [Stack Overflow](https://stackoverflow.com/questions/tagged/ggplot2)
+
+## Ask Chat GPT!
+
+\includegraphics[width=7cm]{ChatGPT.jpg}
 
 ## Why visualise data?
 

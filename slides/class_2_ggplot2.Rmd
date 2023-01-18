@@ -124,7 +124,9 @@ ggplot(data = penguins,
   geom_point()
 ```
 
-(see later for manually specifying colour palettes)
+(This works *only* because `species` is pre-specified as a factor)
+
+(Also see later for manually specifying colour palettes)
 
 ## Changing point types
 
@@ -144,6 +146,15 @@ ggplot(data = penguins,
   coord_fixed()
 ```
 
+## Adding lines
+
+```{r}
+sl <- read.csv('../data/sea_level.csv')
+ggplot(sl, aes(x = Year, y = GMSL_mm)) + 
+  geom_line()
+```
+
+
 
 ## Some notes
 
@@ -151,9 +162,21 @@ ggplot(data = penguins,
 - If you put it inside the `ggplot` function it will persist across later layers
 - By contrast if you put it inside the geom it only works for that layer
 
+## ggplots as objects
+
+- You can save a ggplot as an object and then repeatedly update it:
+
+```{r, eval = FALSE}
+p <- ggplot(data = penguins, 
+       aes(x = bill_length_mm, y = flipper_length_mm))
+p + geom_point()
+p + geom_line()
+```
+
+
 ## Exercise
 
-Every body spend 2 minutes taking this plot command and adding basic customisation to it
+Every body spend 5 minutes taking this plot command and adding basic customisations to it
 
 ```{r}
 ggplot(data = penguins, 
@@ -161,10 +184,8 @@ ggplot(data = penguins,
   geom_boxplot()
 ```
 
-
-
 ## Summary
 
-- Most of the hard work with `ggplot2` is getting your data into the right format
-- Y
-- Z
+- Most of the hard work with `ggplot2` is getting your data into the right format (see the next practical)
+- Then it's a question of adding the right layers to get the plot you want. More layers discussed in next section
+- Always go back to class 1 to check that you have satisfied the golden rules!

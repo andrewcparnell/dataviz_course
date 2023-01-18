@@ -1,12 +1,16 @@
 Introduction to Data Visualisation - data sets
 
+CO2.csv is the monthly CO2 measurements from Hawaii. The three columns are year, month, and CO2 value in parts per million. The Data come from NOAA
+
 fcr.csv is a data set to estimate feed conversion rates in a set of pigs. The variables are: food weight (in kg), weight gain (in kg) and sex
 
 geese_isotopes.csv contains a bivariate time series in irregular time of geese stable isotope values (d15N and d13C) together with some extra covariates: adult (yes=1 or no=0), male (yes = 1), day, month, year, and Julian day (day through year). Comes from the R package simmr.
 
-horseshoe.csv contains data from a study (Brockman, Ethology, 1996) on nesting horseshoe crabs. The response variable is satell: the number of satellites (other males residing nearby). The covariates are the female crabs colour (color; 1 = light medium, 2 = medium, 3 = dark medium, 4 = dark), spine condition (1 = both good, 2 = one worn or broken, 3 = both worn or broken), widch (cm), and weight (kg) 
+horseshoe.csv contains data from a study (Brockman, Ethology, 1996) on nesting horseshoe crabs. The response variable is satell: the number of satellites (other males residing nearby). The covariates are the female crabs colour (color; 1 = light medium, 2 = medium, 3 = dark medium, 4 = dark), spine condition (1 = both good, 2 = one worn or broken, 3 = both worn or broken), width (cm), and weight (kg) 
 
 pollen.csv is a set of modern pollen counts and their associated climates. The variables are: GDD5 (Growing degree days about 5C), MTCO (Mean temperature of the coldest month), pollen counts of taxa (Abies - Graminaea). 
+
+sea_level.csv is the global average sea level data set created from tide gauges around the world. The columns include year AD, global mean sea level (mm), and a 1-sigma measurement error (also in mm).  From Church and White (2011). Also includes a monthly version in sea_level_monthly.
 
 swt.csv contains measurements on whether Swiss Willow Tits were found on three separate visits. The covariates include forest cover and elevation, as well as the amount of effort used that day to find the birds. From Royle and Dorazio
 
