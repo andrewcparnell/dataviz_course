@@ -4,7 +4,7 @@ author: Andrew Parnell \newline \texttt{andrew.parnell@mu.ie}   \newline \vspace
   \newline \includegraphics[width=3cm]{maynooth_uni_logo.jpg}
   \newline \vspace{1cm}
   \newline PRESS RECORD 
-  https://andrewcparnell.github.io/dataviz_course 
+  \newline https://andrewcparnell.github.io/dataviz_course 
 output:
   beamer_presentation:
     includes:
@@ -16,17 +16,15 @@ editor_options:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(dev = "pdf")
-par(mar = c(3, 3, 2, 1), mgp = c(2, .7, 0), tck = -.01, las = 1)
 library(tidyverse)
 ```
 
 ## Let's get started
 
 - About me
-- Tell me:
+- Tell me (on slack):
     
     - who you are, 
-    - where you are from,
     - your previous experience in working with R and visualisation,
     - what you are working on,
     - what you want to get out of the course,
@@ -56,36 +54,42 @@ support your individual studies.
 ## Course format and other details
 
 - Lectures will take place in the morning via Zoom, practical classes in the afternoon
+- I aim to make the lecture classes last around 45 minutes, leaving 15 minutes for questions (feel free to ask either during the lecture or at the end)
 - In the practical classes I will go round the room asking people how they are getting on
 - If you want to send me a private message use Slack
 - Please ask lots of questions, but __MUTE YOUR MICROPHONE__ when not asking them
 - Some good resources:
 
     - [Data Visualisation](https://r4ds.had.co.nz/data-visualisation.html) (chapter) by Hadley Wickham
-    - [ggplot2 reference guide](https://ggplot2.tidyverse.org)
     - [The psychology of data visualisation](https://friendly.github.io/6135/) by Michael Friendly
     - The [ggplot2 book](https://ggplot2-book.org)
-    - [Philosphy of visualisation](http://vita.had.co.nz/papers/layered-grammar.pdf) by Hadley Wickhame
     - [Fundamentals of data visualisation](https://clauswilke.com/dataviz/) by Claus Wilke
-    - [Stack Overflow](https://stackoverflow.com/questions/tagged/ggplot2)
 
-## Ask Chat GPT!
+## Where should we start? Chat GPT!
 
-\includegraphics[width=7cm]{ChatGPT.jpg}
+\begin{center}
+\includegraphics[width=11cm]{ChatGPT.jpg}
+\end{center}
 
 ## Why visualise data?
 
 ```{r}
 library(datasauRus)
+```
+```{r, include = FALSE}
 datasaurus_four <- datasaurus_dozen %>%
   filter(str_detect(
     dataset,
     "(dino|bullseye|star|x_shape)"
   ))
-datasaurus_four %>% summary()
+
+```
+```{r}
+datasaurus_four %>% head
 ```
 
-## Summarise as a table...
+
+## Create some summary statistics
 
 \small
 
@@ -103,10 +107,11 @@ datasaurus_four %>%
     corr_x_y = cor(x, y)
   )
 ```
-
 ::::
 
 :::: column
+\tiny
+
 ```{r, echo = FALSE}
 datasaurus_four %>%
   group_by(dataset) %>%
@@ -119,9 +124,10 @@ datasaurus_four %>%
   )
 ```
 ::::
+
 :::
 
-## Do some linear regressions?
+## Run some linear regressions?
 
 ```{r}
 datasaurus_four %>%
@@ -132,21 +138,21 @@ datasaurus_four %>%
     )
 ```
 
-## ... or as a plot
+## ... but what if we plot the data?
 
-```{r}
+```{r, fig.height= 4}
 ggplot(datasaurus_four, aes(x = x, y = y, colour = dataset)) +
-  geom_point() +
-  theme_void() +
+  geom_point() + theme_void() +
   theme(legend.position = "none") +
   facet_wrap(~dataset, ncol = 4)
 ```
 
 ## Introduction to example data sets used in the course: 
 
-- All used data sets in this course are either in the `data` directory or come from packages
+- All data sets used in this course are either in the `data` directory or come from packages
 - The `data_desciption.txt` file in the data directory contains a list of all the fields and references
-- Look at the help file for the data sets that come from packages to see the full list of fields
+- Look at the help file for the data sets that come from the packages to see the full list of fields
+- The data sets include...
 
 ## `palmerpenguins`
 
@@ -213,7 +219,7 @@ The data type will often strongly guide the choice of visualisation
 
 ## Some basic plot types: 1 Bar charts
 
-```{r, echo = FALSE}
+```{r, echo = FALSE, fig.height = 5}
 ggplot(penguins, aes(x = species)) + 
   geom_bar() + 
   xlab("Species") + 
@@ -222,7 +228,7 @@ ggplot(penguins, aes(x = species)) +
 
 ## Some basic plot types: 2 Histograms
 
-```{r, echo = FALSE}
+```{r, echo = FALSE, fig.height = 5, warning=FALSE}
 ggplot(penguins, aes(x = body_mass_g)) + 
   geom_histogram(bins = 30) + 
   xlab("Body mass (g)")
@@ -230,7 +236,7 @@ ggplot(penguins, aes(x = body_mass_g)) +
 
 ## Some basic plot types: 3 Boxplots
 
-```{r, echo = FALSE}
+```{r, echo = FALSE, fig.height = 5, warning=FALSE}
 ggplot(penguins, aes(x = species, y = body_mass_g)) + 
   geom_boxplot() + 
   xlab("Species") + 
@@ -239,13 +245,13 @@ ggplot(penguins, aes(x = species, y = body_mass_g)) +
 
 ## Some basic plot types: 4 Scatter plots
 
-```{r}
+```{r, echo = FALSE, fig.height = 5, warning=FALSE}
 ggplot(data = penguins, 
        aes(x = bill_length_mm, y = flipper_length_mm)) + 
   geom_point() + 
   xlab("Bill length (mm)") + 
-  ylab("Flipper length (mm)") + 
-  coord_fixed()
+  ylab("Flipper length (mm)") # + 
+  # coord_fixed()
 ```
 
 ## 10 basic rules for plotting 
@@ -258,12 +264,12 @@ ggplot(data = penguins,
 1. Try to label interesting features of a plot directly
 1. Use colour carefully; try to avoid too many colours
 1. If you must have a legend then think carefully about the labelling
-1. Use small number of multiple figures (facets)
+1. Use a small number of related multiple figures (facets)
 1. Think about the units of the axes - should a plot be square or rectangular?
 
 ## Exercise: try and list 5 things that are bad about the following plot
 
-```{r}
+```{r, fig.height=5}
 plot(penguins$bill_length_mm, penguins$flipper_length_mm)
 ```
 
@@ -273,8 +279,8 @@ plot(penguins$bill_length_mm, penguins$flipper_length_mm)
 
 ## Summary
 
-- 
+- Follow the rules ...
 
-- Y
+- ...use the checklist...
 
-- Z
+- ... and try to make the whole process fun for yourself

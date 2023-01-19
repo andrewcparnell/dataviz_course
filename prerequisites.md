@@ -18,9 +18,15 @@ Install the following using the corresponding links
 
 ### Step 2
 
-Now install the following packages by going into Rstudio (or R) by typing:
+The `tidyverse` package is the main one we need so install that first:
 ```{r,eval=FALSE}
-install.packages(c('tidyverse', 'palmerpenguins', 'datasauRus', 'patchwork', "GGally", "corrplot", "hexbin", "maps", "sf", "ggspatial"))
+install.packages('tidyverse')
+```
+
+The rest of the tools we need are optional packages that you will only need if you want to run ALL of the course code:
+
+```{r,eval=FALSE}
+install.packages(c(, 'palmerpenguins', 'datasauRus', 'patchwork', "GGally", "corrplot", "hexbin", "maps", "sf", "ggspatial", "plotly"))
 ```
 
 ### Troubleshooting

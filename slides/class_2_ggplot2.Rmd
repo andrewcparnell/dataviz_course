@@ -4,7 +4,7 @@ author: Andrew Parnell \newline \texttt{andrew.parnell@mu.ie}   \newline \vspace
   \newline \includegraphics[width=3cm]{maynooth_uni_logo.jpg}
   \newline \vspace{1cm}
   \newline PRESS RECORD 
-  https://andrewcparnell.github.io/dataviz_course 
+  \newline https://andrewcparnell.github.io/dataviz_course 
 output:
   beamer_presentation:
     includes:
@@ -46,8 +46,8 @@ penguins %>% glimpse
 Every ggplot has:
 
 - A data set (usually a data frame or a tibble)
-- An __(aes)thetic__ which maps the data to graphical elements
-- A __(geom)etry__ which types of graphical elements to display
+- An __aes(thetic)__ which maps the data to graphical elements
+- A __geom(etry)__ which types of graphical elements to display
 
 \begin{center}
 \includegraphics[width=8cm]{aes.png}
@@ -57,7 +57,7 @@ Every ggplot has:
 
 ## An example ggplot
 
-```{r}
+```{r, warning=FALSE, fig.height = 4}
 ggplot(data = penguins, 
        aes(x = bill_length_mm, y = flipper_length_mm)) + 
   geom_point()
@@ -67,28 +67,28 @@ ggplot(data = penguins,
 
 ## Some basic plot types: 1 Bar charts
 
-```{r}
+```{r, fig.height = 4, warning=FALSE}
 ggplot(penguins, aes(x = island)) + 
   geom_bar()
 ```
 
 ## Some basic plot types: 2 Histograms
 
-```{r}
+```{r, fig.height = 4, warning=FALSE}
 ggplot(penguins, aes(x = flipper_length_mm)) + 
   geom_histogram(bins = 30)
 ```
 
 ## Some basic plot types: 3 Boxplots
 
-```{r}
+```{r, fig.height = 4, warning=FALSE}
 ggplot(penguins, aes(x = sex, y = bill_length_mm)) + 
   geom_boxplot()
 ```
 
 ## Some basic plot types: 4 Scatter plots
 
-```{r}
+```{r, fig.height = 4, warning=FALSE}
 ggplot(data = penguins, 
        aes(x = bill_length_mm, y = body_mass_g)) + 
   geom_point()
@@ -118,7 +118,7 @@ or you can specify these individually with, e.g. `+ xlab("Bill length")`
 
 Add colour as another aesthetic:
 
-```{r}
+```{r, warning=FALSE, fig.height = 4}
 ggplot(data = penguins, 
        aes(x = bill_length_mm, y = body_mass_g, colour = species)) + 
   geom_point()
@@ -130,7 +130,7 @@ ggplot(data = penguins,
 
 ## Changing point types
 
-```{r}
+```{r, warning=FALSE, fig.height = 4}
 ggplot(data = penguins, 
        aes(x = bill_length_mm, y = body_mass_g, 
            shape = species, size = species)) + 
@@ -139,7 +139,7 @@ ggplot(data = penguins,
 
 ## Changing the coordinates
 
-```{r}
+```{r, warning=FALSE, fig.height = 3}
 ggplot(data = penguins, 
        aes(x = bill_length_mm, y = flipper_length_mm)) + 
   geom_point() + 
@@ -148,13 +148,11 @@ ggplot(data = penguins,
 
 ## Adding lines
 
-```{r}
+```{r, warning=FALSE, fig.height = 4}
 sl <- read.csv('../data/sea_level.csv')
 ggplot(sl, aes(x = Year, y = GMSL_mm)) + 
   geom_line()
 ```
-
-
 
 ## Some notes
 
@@ -176,9 +174,9 @@ p + geom_line()
 
 ## Exercise
 
-Every body spend 5 minutes taking this plot command and adding basic customisations to it
+Every body spend 5 minutes taking this plot command and adding basic customisations to it. Post your better versions to Slack
 
-```{r}
+```{r, warning=FALSE, fig.height = 3.5}
 ggplot(data = penguins, 
        aes(x = sex, y = flipper_length_mm)) + 
   geom_boxplot()

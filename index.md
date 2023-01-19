@@ -20,7 +20,7 @@ Time  | Class
 9:15-10:15 | [Introduction to ggplot2](https://andrewcparnell.github.io/dataviz_course/slides/class_2_ggplot2.pdf)
 10:15-10:30 | Break 
 10:30-11:30 | Guided practical: A workflow for ggplot2 [(R code)](https://andrewcparnell.github.io/dataviz_course/practicals/tutor_1_ggplot2_basics.R)
-11:30-12:30 | [Customisation of ggplots](https://andrewcparnell.github.io/dataviz_course/slides/class_3_customisation.pdf)
+11:30-12:30 | [Customisation of ggplots](https://andrewcparnell.github.io/dataviz_course/slides/class_3_more_ggplot2.pdf)
 12:30-13:30 | Lunch
 13:30-15:00 | Self-guided practical [(html)](https://andrewcparnell.github.io/dataviz_course/practicals/practical_1_create_your_own_visualisations.html) 
 

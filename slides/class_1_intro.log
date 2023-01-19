@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.4.19)  15 JAN 2023 20:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.4.19)  18 JAN 2023 21:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -804,6 +804,10 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\newline' on input line 154.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\begingroup' on input line 154.
 
 
@@ -1232,7 +1236,7 @@ LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <8> not available
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <6> not available
 (Font)              Font shape `T1/lmss/m/sl' tried instead on input line 158.
 
-Overfull \vbox (36.13339pt too high) detected at line 158
+Overfull \vbox (49.7334pt too high) detected at line 158
  []
 
 [1
@@ -1240,17 +1244,17 @@ Overfull \vbox (36.13339pt too high) detected at line 158
 {/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./mayno
 oth_uni_logo.jpg>]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 186.
+(Font)              <10> on input line 184.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 186.
+(Font)              <7> on input line 184.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 186.
+(Font)              <5> on input line 184.
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <10> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 186.
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 184.
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <7> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 186.
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 184.
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <5> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 186.
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 184.
 [2
 
 ]
@@ -1263,44 +1267,17 @@ LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <5> not available
 ] [5
 
 ]
+<ChatGPT.jpg, id=55, 1463.4675pt x 921.4425pt>
+File: ChatGPT.jpg Graphic file (type jpg)
+<use ChatGPT.jpg>
+Package pdftex.def Info: ChatGPT.jpg  used on input line 273.
+(pdftex.def)             Requested size: 312.96458pt x 197.05177pt.
+[6
+
+ <./ChatGPT.jpg>]
 \openout4 = `class_1_intro.vrb'.
 
-(./class_1_intro.vrb) [6
-
-]
-\openout4 = `class_1_intro.vrb'.
-
-(./class_1_intro.vrb
-Overfull \hbox (102.79832pt too wide) in paragraph at lines 31--31
-[]\T1/lmtt/m/n/10 ##   dataset  mean_x mean_y std_dev_x std_dev_y corr_x_y[] 
- []
-
-
-Overfull \hbox (102.79832pt too wide) in paragraph at lines 31--31
-[]\T1/lmtt/m/n/10 ##   <chr>     <dbl>  <dbl>     <dbl>     <dbl>    <dbl>[] 
- []
-
-
-Overfull \hbox (102.79832pt too wide) in paragraph at lines 31--31
-[]\T1/lmtt/m/n/10 ## 1 bullseye   54.3   47.8      16.8      26.9  -0.0686[] 
- []
-
-
-Overfull \hbox (102.79832pt too wide) in paragraph at lines 31--31
-[]\T1/lmtt/m/n/10 ## 2 dino       54.3   47.8      16.8      26.9  -0.0645[] 
- []
-
-
-Overfull \hbox (102.79832pt too wide) in paragraph at lines 31--31
-[]\T1/lmtt/m/n/10 ## 3 star       54.3   47.8      16.8      26.9  -0.0630[] 
- []
-
-
-Overfull \hbox (102.79832pt too wide) in paragraph at lines 31--31
-[]\T1/lmtt/m/n/10 ## 4 x_shape    54.3   47.8      16.8      26.9  -0.0656[] 
- []
-
-) [7
+(./class_1_intro.vrb) [7
 
 ]
 \openout4 = `class_1_intro.vrb'.
@@ -1310,25 +1287,30 @@ Overfull \hbox (102.79832pt too wide) in paragraph at lines 31--31
 ]
 \openout4 = `class_1_intro.vrb'.
 
-(./class_1_intro.vrb
-<class_1_intro_files/figure-beamer/unnamed-chunk-5-1.pdf, id=74, 686.565pt x 48
-5.815pt>
-File: class_1_intro_files/figure-beamer/unnamed-chunk-5-1.pdf Graphic file (typ
-e pdf)
-<use class_1_intro_files/figure-beamer/unnamed-chunk-5-1.pdf>
-Package pdftex.def Info: class_1_intro_files/figure-beamer/unnamed-chunk-5-1.pd
-f  used on input line 13.
-(pdftex.def)             Requested size: 344.9264pt x 244.07072pt.
-)
-Overfull \vbox (101.90701pt too high) detected at line 363
- []
+(./class_1_intro.vrb) [9
 
-[9
-
- <./class_1_intro_files/figure-beamer/unnamed-chunk-5-1.pdf>]
+]
 \openout4 = `class_1_intro.vrb'.
 
-(./class_1_intro.vrb) [10
+(./class_1_intro.vrb
+<class_1_intro_files/figure-beamer/unnamed-chunk-7-1.pdf, id=82, 686.565pt x 27
+9.0425pt>
+File: class_1_intro_files/figure-beamer/unnamed-chunk-7-1.pdf Graphic file (typ
+e pdf)
+<use class_1_intro_files/figure-beamer/unnamed-chunk-7-1.pdf>
+Package pdftex.def Info: class_1_intro_files/figure-beamer/unnamed-chunk-7-1.pd
+f  used on input line 12.
+(pdftex.def)             Requested size: 398.3337pt x 161.89584pt.
+)
+Overfull \vbox (6.13213pt too high) detected at line 375
+ []
+
+[10
+
+ <./class_1_intro_files/figure-beamer/unnamed-chunk-7-1.pdf>]
+\openout4 = `class_1_intro.vrb'.
+
+(./class_1_intro.vrb) [11
 
 ]
 \openout4 = `class_1_intro.vrb'.
@@ -1381,51 +1363,83 @@ Overfull \hbox (32.16016pt too wide) in paragraph at lines 23--23
 07, 2007, 2007, 2007~[] 
  []
 
-) [11
-
-]
-\openout4 = `class_1_intro.vrb'.
-
-(./class_1_intro.vrb) [12
+) [12
 
 ]
 \openout4 = `class_1_intro.vrb'.
 
 (./class_1_intro.vrb) [13
 
-] [14
+]
+\openout4 = `class_1_intro.vrb'.
+
+(./class_1_intro.vrb) [14
 
 ] [15
 
 ] [16
 
-] [17
+]
+<class_1_intro_files/figure-beamer/unnamed-chunk-11-1.pdf, id=134, 712.6625pt x
+ 351.3125pt>
+File: class_1_intro_files/figure-beamer/unnamed-chunk-11-1.pdf Graphic file (ty
+pe pdf)
+<use class_1_intro_files/figure-beamer/unnamed-chunk-11-1.pdf>
+Package pdftex.def Info: class_1_intro_files/figure-beamer/unnamed-chunk-11-1.p
+df  used on input line 530.
+(pdftex.def)             Requested size: 398.33795pt x 196.36377pt.
+[17
 
-] [18
+ <./class_1_intro_files/figure-beamer/unnamed-chunk-11-1.pdf>]
+<class_1_intro_files/figure-beamer/unnamed-chunk-12-1.pdf, id=149, 711.65875pt 
+x 351.3125pt>
+File: class_1_intro_files/figure-beamer/unnamed-chunk-12-1.pdf Graphic file (ty
+pe pdf)
+<use class_1_intro_files/figure-beamer/unnamed-chunk-12-1.pdf>
+Package pdftex.def Info: class_1_intro_files/figure-beamer/unnamed-chunk-12-1.p
+df  used on input line 535.
+(pdftex.def)             Requested size: 398.33072pt x 196.63716pt.
+[18
 
-] [19
+ <./class_1_intro_files/figure-beamer/unnamed-chunk-12-1.pdf>]
+<class_1_intro_files/figure-beamer/unnamed-chunk-13-1.pdf, id=163, 712.6625pt x
+ 351.3125pt>
+File: class_1_intro_files/figure-beamer/unnamed-chunk-13-1.pdf Graphic file (ty
+pe pdf)
+<use class_1_intro_files/figure-beamer/unnamed-chunk-13-1.pdf>
+Package pdftex.def Info: class_1_intro_files/figure-beamer/unnamed-chunk-13-1.p
+df  used on input line 540.
+(pdftex.def)             Requested size: 398.33795pt x 196.36377pt.
+[19
 
-] [20
+ <./class_1_intro_files/figure-beamer/unnamed-chunk-13-1.pdf>]
+<class_1_intro_files/figure-beamer/unnamed-chunk-14-1.pdf, id=178, 712.6625pt x
+ 351.3125pt>
+File: class_1_intro_files/figure-beamer/unnamed-chunk-14-1.pdf Graphic file (ty
+pe pdf)
+<use class_1_intro_files/figure-beamer/unnamed-chunk-14-1.pdf>
+Package pdftex.def Info: class_1_intro_files/figure-beamer/unnamed-chunk-14-1.p
+df  used on input line 545.
+(pdftex.def)             Requested size: 398.33795pt x 196.36377pt.
+[20
+
+ <./class_1_intro_files/figure-beamer/unnamed-chunk-14-1.pdf>] [21
 
 ]
 \openout4 = `class_1_intro.vrb'.
 
 (./class_1_intro.vrb
-<class_1_intro_files/figure-beamer/unnamed-chunk-9-1.pdf, id=158, 690.58pt x 43
-1.6125pt>
-File: class_1_intro_files/figure-beamer/unnamed-chunk-9-1.pdf Graphic file (typ
-e pdf)
-<use class_1_intro_files/figure-beamer/unnamed-chunk-9-1.pdf>
-Package pdftex.def Info: class_1_intro_files/figure-beamer/unnamed-chunk-9-1.pd
-f  used on input line 9.
-(pdftex.def)             Requested size: 390.51563pt x 244.07225pt.
-)
-Overfull \vbox (47.50851pt too high) detected at line 567
- []
+<class_1_intro_files/figure-beamer/unnamed-chunk-15-1.pdf, id=198, 690.58pt x 2
+87.0725pt>
+File: class_1_intro_files/figure-beamer/unnamed-chunk-15-1.pdf Graphic file (ty
+pe pdf)
+<use class_1_intro_files/figure-beamer/unnamed-chunk-15-1.pdf>
+Package pdftex.def Info: class_1_intro_files/figure-beamer/unnamed-chunk-15-1.p
+df  used on input line 9.
+(pdftex.def)             Requested size: 398.3449pt x 165.59103pt.
+) [22
 
-[21
-
- <./class_1_intro_files/figure-beamer/unnamed-chunk-9-1.pdf>] [22
+ <./class_1_intro_files/figure-beamer/unnamed-chunk-15-1.pdf>] [23
 
 ]
 \tf@nav=\write6
@@ -1439,11 +1453,11 @@ Overfull \vbox (47.50851pt too high) detected at line 567
 
 (./class_1_intro.aux) ) 
 Here is how much of TeX's memory you used:
- 24997 strings out of 478268
- 483252 string characters out of 5846347
- 767206 words of memory out of 5000000
- 42478 multiletter control sequences out of 15000+600000
- 541622 words of font info for 131 fonts, out of 8000000 for 9000
+ 25040 strings out of 478268
+ 485154 string characters out of 5846347
+ 767209 words of memory out of 5000000
+ 42512 multiletter control sequences out of 15000+600000
+ 541943 words of font info for 132 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,11n,122p,1010b,674s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/l
@@ -1453,11 +1467,12 @@ m-ec.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmss10.pfb><
 22/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb></usr/local/texlive/2022/texmf
 -dist/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2022/texmf-dist/font
 s/type1/public/lm/lmtt12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/pu
-blic/amsfonts/symbols/msam10.pfb>
-Output written on class_1_intro.pdf (22 pages, 246810 bytes).
+blic/lm/lmtt8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfon
+ts/symbols/msam10.pfb>
+Output written on class_1_intro.pdf (23 pages, 520722 bytes).
 PDF statistics:
- 225 PDF objects out of 1000 (max. 8388607)
- 172 compressed objects within 2 object streams
- 66 named destinations out of 1000 (max. 500000)
- 43066 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 271 PDF objects out of 1000 (max. 8388607)
+ 201 compressed objects within 3 object streams
+ 69 named destinations out of 1000 (max. 500000)
+ 43091 words of extra memory for PDF output out of 51595 (max. 10000000)
 

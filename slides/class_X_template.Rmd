@@ -54,6 +54,26 @@ qqline(x)
 <!-- \includegraphics[width=4cm]{Thomas_Bayes.pdf} -->
 <!-- \end{center} -->
 
+## Columns
+
+::: columns
+
+:::: column
+```{r, eval = FALSE}
+x <- 2
+```
+::::
+
+:::: column
+
+```{r, echo = FALSE}
+x <- 2
+```
+::::
+
+:::
+
+
 ## Summary
 
 - X

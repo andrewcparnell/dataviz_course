@@ -4,7 +4,7 @@ author: Andrew Parnell \newline \texttt{andrew.parnell@mu.ie}   \newline \vspace
   \newline \includegraphics[width=3cm]{maynooth_uni_logo.jpg}
   \newline \vspace{1cm}
   \newline PRESS RECORD 
-  https://andrewcparnell.github.io/dataviz_course 
+  \newline https://andrewcparnell.github.io/dataviz_course 
 output:
   beamer_presentation:
     includes:
@@ -15,8 +15,7 @@ editor_options:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(dev = 'pdf')
-par(mar=c(3,3,2,1), mgp=c(2,.7,0), tck=-.01,las=1)
+knitr::opts_chunk$set(dev = 'pdf', fig.height = 4)
 library(tidyverse)
 ```
 
@@ -25,6 +24,7 @@ library(tidyverse)
 - See most of the remaining customisation routines
 - Learn how to fine-tune your ggplots
 - Use a different data set
+
 
 ## New data set: Horseshoe crabs
 
@@ -41,7 +41,7 @@ horseshoe %>% glimpse
 
 ## Changing axis formats: breaks, limits and labels 
 
-```{r}
+```{r, fig.height = 3}
 ggplot(horseshoe, aes(x = width, y = weight)) + 
   geom_point() +
   scale_x_continuous(limits = c(-10, 60), 
@@ -53,7 +53,7 @@ Also works for y axis
 
 ## Changing a discrete axis
 
-```{r}
+```{r, fig.height = 3}
 ggplot(horseshoe, aes(x = color, y = weight)) + 
     geom_boxplot() +
   scale_x_discrete(labels = letters[1:4])
@@ -61,9 +61,11 @@ ggplot(horseshoe, aes(x = color, y = weight)) +
 
 Can also set `limits` to remove some categories
 
+
+
 ## Changing axis formats: transformations
 
-```{r}
+```{r, fig.height=4}
 ggplot(horseshoe, aes(x = color, y = weight)) + 
     geom_boxplot() +
   scale_y_sqrt()
@@ -75,16 +77,39 @@ Within `scale_*_continuous` you can use the `trans` argument to specify any othe
 
 ## Changing axis formats 2: advanced transformations
 
+\small
+
+::: columns
+
+:::: column
+
 The `scales` package (in tidyverse) has more clever ways of labelling axes within `scale_*_continuous`
 
-```{r}
+```{r, eval = FALSE}
+ggplot(horseshoe, aes(x = color, 
+                      y = width)) + 
+    geom_boxplot() +
+  scale_y_continuous(
+    trans = scales::log_trans(),
+    breaks = scales::log_breaks()
+  )
+```
+The `scales` package can also label axes better in e.g. financial or scientific measurement formats  
+
+
+::::
+
+:::: column
+
+```{r, echo = FALSE}
 ggplot(horseshoe, aes(x = color, y = width)) + 
     geom_boxplot() +
   scale_y_continuous(trans = scales::log_trans(),
                      breaks = scales::log_breaks())
 ```
+::::
 
-The `scales` package can also label axes better in e.g. financial or scientific measurement formats  
+:::
 
 ## Changing lines and points
 
@@ -94,7 +119,7 @@ thickness styles, line types, point types
 
 There are some nice geoms to automatically add smoothes to data sets
 
-```{r}
+```{r, fig.height = 3, message=FALSE}
 ggplot(horseshoe, aes(x = width, y = weight)) + 
   geom_smooth()
 ```
@@ -108,26 +133,26 @@ ggplot(horseshoe, aes(x = width, y = weight)) +
 - You can use the `method` argument to specify another method such as `lm` or `glm`
 - The default also includes a 95\% confidence interval which you can remove with `se = FALSE` or change the level with `level = 0.75` for a 75\% CI
 
-
 ## Rug plots
 
-```{r}
+```{r, fig.height = 3}
 ggplot(horseshoe, aes(x = width, y = weight)) + 
   geom_point() + 
   geom_rug()
 ```
 
-- Change which axes are used with the `sides = "trbl` argument
+- Change which axes are used with the `sides = `trbl` argument
 - Use other arguments (`alpha`, `colour`, `linewidth`) to change appearance
 
 ## Facets
 
 When too many points start to appear on a plot, think about creating facets:
 
-```{r}
+```{r, fig.height=3}
 ggplot(horseshoe, aes(x = width, y = weight)) + 
   geom_point() + 
-  facet_wrap(vars(color)) # (vars is just like aes, looks inside the data set)
+  facet_wrap(vars(color)) 
+  # (vars is just like aes, looks inside the data set)
 ```
 
 ## Notes on facets
@@ -140,7 +165,7 @@ ggplot(horseshoe, aes(x = width, y = weight)) +
 
 Lots of ways to add disparate plots together; simplest is possibly `patchwork`
 
-```{r}
+```{r, fig.height=3}
 library(patchwork)
 p1 <- ggplot(horseshoe, aes(x = width, y = weight)) + 
   geom_point()
@@ -160,6 +185,10 @@ ggplot(horseshoe, aes(x = width, y = weight,
                       label = satell)) + 
   geom_text()
 ```
+
+
+
+
 
 ## Notes on text labels
 
@@ -185,7 +214,7 @@ ggplot(horseshoe, aes(x = width, y = weight)) +
 
 You can do this using `annotate`, or you can use:
 
-```{r}
+```{r, fig.height=3}
 ggplot(horseshoe, aes(x = width, y = weight)) + 
   geom_point() + 
   geom_hline(yintercept = 3) + 
@@ -213,7 +242,7 @@ ggplot(horseshoe, aes(x = width, y = weight,
   geom_point()
 ```
 
-# Changing the colour palette: viridis
+## Changing the colour palette: viridis
 
 ```{r}
 ggplot(horseshoe, aes(x = width, y = weight,
@@ -231,9 +260,12 @@ ggplot(horseshoe, aes(x = width, y = weight,
   scale_colour_viridis_c(option = 'plasma')
 ```
 
+
 ## Some example colour scales
 
-\includegraphics[width=3cm]{colour_scales.jpg}
+\begin{center}
+\includegraphics[width=10cm]{colour_scales.jpg}
+\end{center}
 
 From the [viridis](https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html) package documentation
 
@@ -253,18 +285,18 @@ Choosing the colour palette is a bit of a minefield, but...
 
 When points overlap, use jittering to separate them out (but make sure to tell people)
 
-```{r}
+```{r, fig.height=3}
 ggplot(horseshoe, aes(x = width, y = satell)) + 
   geom_jitter()
 ```
 
-- Use `width` and `height` arguments to vary hte amount of jittering
+- Use `width` and `height` arguments to vary the amount of jittering
 
 ## Plotting data with uncertainty
 
 When the data has uncertainty use `geom_pointrange` (points with errors), `geom_linerange` (candlesticks), and  `geom_errorbar` (line ranges with upper/lower horizontal)
 
-```{r}
+```{r, fig.height=3}
 ggplot(horseshoe, aes(x = width, y = satell)) + 
   geom_errorbar(aes(ymin = satell - 1, ymax = satell + 1))
 ```
@@ -299,7 +331,7 @@ ggplot(horseshoe, aes(x = satell, group = spine,
 
 Use `ggridges`
 
-```{r}
+```{r, fig.height=3, message=FALSE}
 library(ggridges)
 ggplot(horseshoe, aes(x = satell, y = spine, 
                       fill = spine)) + 
@@ -308,8 +340,13 @@ ggplot(horseshoe, aes(x = satell, y = spine,
 
 - See later slide for removing the unnecessary legend
 
-# Useful tools for changing coordinates
+## Useful tools for changing coordinates
 
+\small
+
+::: columns
+
+:::: column
 Some very useful options for changing coordinate systems:
 
 - `coord_flip` flips the x and y axes
@@ -317,16 +354,48 @@ Some very useful options for changing coordinate systems:
 - `coord_equal` to make the axis differences equal
 - Use instead `theme(aspect.ratio = 1)` to make the plot square
 
-```{r}
-ggplot(horseshoe, aes(x = satell, group = spine, 
-                      fill = spine)) + 
+```{r, eval = FALSE}
+ggplot(horseshoe, 
+       aes(x = satell, 
+           group = spine, 
+           fill = spine)) + 
   geom_density(alpha = 0.5) + 
   theme(aspect.ratio = 1)
 ```
+::::
+
+:::: column
+
+```{r, echo = FALSE}
+ggplot(horseshoe, 
+       aes(x = satell, 
+           group = spine, 
+           fill = spine)) + 
+  geom_density(alpha = 0.5) + 
+  theme(aspect.ratio = 1)
+```
+::::
+
+:::
+
 
 ## Themes
 
-```{r}
+```{r, eval = FALSE}
+p1 <- ggplot(horseshoe, aes(x = width, y = weight, colour = color)) + 
+  geom_point()
+p2 <- ggplot(horseshoe, aes(x = width, y = weight, colour = color)) + 
+  geom_point() + theme_bw()
+p3 <- ggplot(horseshoe, aes(x = width, y = weight, colour = color)) + 
+  geom_point() + theme_minimal()
+p4 <- ggplot(horseshoe, aes(x = width, y = weight, colour = color)) + 
+  geom_point() + theme_dark()
+p1 + p2 + p3 + p4 + plot_layout(ncol = 2)
+```
+
+## Themes 2
+
+```{r, echo = FALSE, fig.height=5}
 p1 <- ggplot(horseshoe, aes(x = width, y = weight, colour = color)) + 
   geom_point()
 p2 <- ggplot(horseshoe, aes(x = width, y = weight, colour = color)) + 
@@ -368,10 +437,9 @@ Most of the geoms we have met have their own individual features, for example:
 
 For all of these (and the others we have met) see the help files to fully understand
 
-
 ## Exercise
 
-Draw the ugliest plot you can using the commands we have covered above! Submit it to Slack. Like other people's graphs to find the winner 
+Use the horseshoe data to draw the ugliest plot you can using the commands we have covered above! Submit it to Slack. Like other people's graphs to find the winner 
 
 
 ## Summary
