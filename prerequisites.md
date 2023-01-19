@@ -31,5 +31,5 @@ install.packages(c('palmerpenguins', 'datasauRus', 'patchwork', "GGally", "corrp
 
 ### Troubleshooting
 
-If you run into any problems please drop me a line at <andrew.parnell@mu.ie>.
+If you run into any problems please drop me a line on Slack.
 
