@@ -1,0 +1,208 @@
+---
+title: 'Class 6: Visualising statistical and machine learning model output.'
+author: Andrew Parnell \newline \texttt{andrew.parnell@mu.ie}   \newline \vspace{1cm}
+  \newline \includegraphics[width=3cm]{maynooth_uni_logo.jpg}
+  \newline \vspace{1cm}
+  \newline PRESS RECORD 
+  \newline https://andrewcparnell.github.io/dataviz_course 
+output:
+  beamer_presentation:
+    includes:
+      in_header: header.tex
+classoption: "aspectratio=169"
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(dev = 'pdf', fig.height = 4,
+                      warning=FALSE, message=FALSE)
+library(tidyverse)
+```
+
+## Learning outcomes
+
+- Quick reminder on (generalised) linear models and machine learning
+- Learn how to visualise output from (generalised) linear models using `ggfortify`
+- Look at model performance using conditional visualisations in `condviz`
+- Look at variable importance and interaction wtih `vivid`
+
+## Generalised linear models (GLMs) in one slide
+
+- In all univariate statistical models we have one variable we are trying to predict (the _response_), and multiple variables upon which to create that prediction (_features_)
+- If the response is continuous and unbounded, most people use linear regression
+- If the response is restricted in some way then people use a generalised linear model which models the transformed mean of the response as a linear regression
+
+## Machine learning in one slide
+
+- Statistical models using assume a linear relationship between the features and the response
+- Machine learning models by contrast usually assume a non-linear relationship with interactions between the features
+- The fitted values are usually a better fit to the data compared to those of a statistical regression model at the expense of model interpretability and uncertainty calibration
+- Machine learning has its own jargon and techniques; for example models are usually compared on data that has been left out of the fitting process
+
+## An example of a GLM fit
+
+\small 
+```{r}
+horseshoe <- readRDS("../data/horseshoe.rds")
+model <- glm(I(satell > 0) ~ width, 
+             family = binomial(link = 'logit'), 
+             data = horseshoe)
+summary(model)
+```
+
+## Default glm plots
+
+```{r}
+par(mfrow=c(2,2))
+plot(model)
+```
+
+## `ggfortify` again
+
+```{r}
+library(ggfortify)
+autoplot(model)
+```
+
+## Options for fitting a machine learning model in R
+
+Lots of packages for fitting machine learning models in R. Some choices:
+
+- `caret` is the original. Hundreds of different methods. Getting a bit old fashioned
+- `tidymodels` in a tidyverse style set of packages for fitting machine learning models. Links well with ggplot2
+- `mlr3` very nice extendible package with a large number of different modelling strategies and output plots
+
+Most of these packages use __other packages__ to perform the machine learning in the background
+
+## Once the model has been fitted...
+
+- It is common to plot the feature importances, interactions and misclassification/error rates
+- Plot individual variable performance using individual conditional expectation (ICE) curves and partial dependence plots (PDPs)
+- (These can sometimes be tricky as the importance is conditional on other features)
+- Once you have fitted the machine learning model there are lots of packages to compare the fit
+- We will cover `tidymodels`, `mlr3`, `iml` and `DALEX` all briefly
+
+## Fitting a machine learning model using `tidymodels`
+
+\small 
+```{r}
+library(tidymodels); library(ranger); library(palmerpenguins)
+
+# Split the data into training and testing sets
+set.seed(123)
+penguins_split <- initial_split(penguins %>% 
+                                  na.omit(), 
+                                prop = 0.8)
+penguins_train <- training(penguins_split)
+penguins_test <- testing(penguins_split)
+
+# Define the model specification
+rf_spec <- 
+  rand_forest(trees = 1000) %>% 
+  set_engine("ranger") %>% 
+  set_mode("classification")
+```
+
+## `tidymodels` part 2
+
+\small 
+```{r}
+# Fit the model to the training data
+rf_fit <- rf_spec %>% fit(species ~ ., 
+                          data = penguins_train)
+
+# Make predictions on the test data
+rf_preds <- rf_fit %>% predict(penguins_test)
+
+# Evaluate the model performance
+rf_preds %>% 
+  bind_cols(penguins_test) %>% 
+  dplyr::select(.pred_class, species) %>% 
+  table
+```
+
+## `iml` - feature importance
+
+```{r}
+library(iml)
+predictor <- Predictor$new(rf_fit, data = penguins_test[,-1],
+                           y = penguins_test[,1])
+imp <- FeatureImp$new(predictor, loss = "ce") # Classification Error
+plot(imp)
+```
+
+Lots of other features in `iml` - but not easy to get it to work
+
+## Another example - using `mlr3`
+
+```{r}
+library(mlr3)
+library(mlr3learners)
+
+# Create a task
+penguins2 = na.omit(penguins)
+task_peng = as_task_classif(penguins2, target = "species")
+
+learner = lrn("classif.ranger")
+learner$predict_type = "prob"
+learner$train(task_peng)
+
+x = penguins2 %>% dplyr::select(island:year)
+model = Predictor$new(learner, data = x, y = penguins2$species)
+```
+
+## Feature effects: ICE and PDPs
+
+```{r}
+num_features = c("bill_length_mm", "bill_depth_mm", "flipper_length_mm", "body_mass_g", "year")
+effect = FeatureEffects$new(model, method = 'ice')
+plot(effect, features = num_features)
+```
+
+## Feature importance
+
+```{r}
+effect = FeatureImp$new(model, loss = "ce")
+effect$plot(features = num_features)
+```
+
+## DALEX
+
+```{r}
+library(DALEX)
+library(DALEXtra)
+ranger_exp = explain_mlr3(learner,
+  data     = penguins2,
+  y        = penguins2$species,
+  label    = "Ranger RF",
+  colorize = FALSE)
+ranger_vi <- model_parts(ranger_exp)
+plot(ranger_vi)
+```
+
+```{r}
+num_features = c("bill_length_mm", "bill_depth_mm", "flipper_length_mm", "body_mass_g", "year")
+penguins_pd <- model_profile(ranger_exp,
+  variables = num_features)$agr_profiles
+plot(penguins_pd)
+```
+
+## Instance level explanations
+
+```{r}
+penguin1 = penguins2[1, ]
+ile_ranger = predict_parts(ranger_exp,
+  new_observation = penguin1)
+plot(ile_ranger)
+```
+
+## Exercise
+
+
+
+## Summary
+
+- So many choices for machine learning approaches and 
+- `tidymodels` and `mlr3` seem to be best supported for fitting lots of machine learning models
+- `DALEX` has wealth of useful plots you can use to understand your model

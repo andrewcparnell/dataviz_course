@@ -26,7 +26,8 @@ install.packages('tidyverse')
 The rest of the tools we need are optional packages that you will only need if you want to run ALL of the course code:
 
 ```{r,eval=FALSE}
-install.packages(c('palmerpenguins', 'datasauRus', 'patchwork', "GGally", "corrplot", "hexbin", "maps", "sf", "ggspatial", "plotly"))
+install.packages(c('palmerpenguins', 'datasauRus', 'patchwork', "GGally", "corrplot", "hexbin", "maps", "ggmap", "ggspatial", "leaflet", "dygraphs",
+"ggfortify", "plotly", "ggiraph", "shiny", "gganimate", "animation", 'tidymodels', 'iml', 'DALEX'))
 ```
 
 ### Troubleshooting

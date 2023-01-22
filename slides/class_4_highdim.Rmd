@@ -4,7 +4,7 @@ author: Andrew Parnell \newline \texttt{andrew.parnell@mu.ie}   \newline \vspace
   \newline \includegraphics[width=3cm]{maynooth_uni_logo.jpg}
   \newline \vspace{1cm}
   \newline PRESS RECORD 
-  https://andrewcparnell.github.io/dataviz_course 
+  \newline https://andrewcparnell.github.io/dataviz_course 
 output:
   beamer_presentation:
     includes:
@@ -15,8 +15,8 @@ editor_options:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(dev = 'pdf')
-par(mar=c(3,3,2,1), mgp=c(2,.7,0), tck=-.01,las=1)
+knitr::opts_chunk$set(dev = 'pdf', fig.height = 4,
+                      warning=FALSE, message=FALSE)
 library(tidyverse)
 ```
 
@@ -26,12 +26,13 @@ library(tidyverse)
 - Plot some map data
 - Plot some time series data
 - Use some of the 3D geoms
-- Last session mostly using ggplot
+- Our last session where we mostly use ggplot
 
 ## New data set for this session
 
 Geese isotopes: Two isotopes taken from the blood plasms of geese together with information about each of the birds
 
+\small 
 ```{r}
 geese <- read.csv('../data/geese_isotopes.csv')
 geese %>%  glimpse
@@ -39,35 +40,40 @@ geese %>%  glimpse
 
 ## Multiple scatter plots: `pairs`
 
-Base R plot
-
 ```{r}
 pairs(geese)
 ```
 
 ## ggplot version using package `GGally`
 
-```{r}
+```{r, message=FALSE, warning=FALSE}
 library(GGally)
 ggpairs(geese)
 ```
 
 Very customisable too - can change what the upper, lower and diagonal panels contain or add colours to different groups
 
-## Visualise correlations
+## Extended ggpairs plot
 
 ```{r}
+ggpairs(geese[,1:5],
+        upper = list(continuous = "density"),
+        lower = list(continuous = "points"))
+```
+
+
+## Visualise correlations
+
+```{r, fig.height=2.5, fig.align='center'}
 library(corrplot)
 corrplot(cor(geese)) # Note: need a correlation matrix!
 ```
-
-Again very customisable
 
 ## 2D density plots
 
 `ggplot2` has specific functions for plotting 3D density data
 
-```{r}
+```{r, fig.height=3}
 ggplot(geese, aes(x = d15NPl, y = d13CPl)) + 
   geom_bin_2d()
 ```
@@ -93,50 +99,121 @@ ggplot(geese, aes(x = d15NPl, y = d13CPl)) +
 ## Plotting data with maps
 
 - Most base R plots of maps are ugly. `ggplot` has an interface to the `maps` package but these are quite ugly and out of date
--Better package are `ggspatial` and `sf` (simple features) which have loads of examples and interfaces for both base R and ggplots
+- Better package are `ggmap`, `ggspatial` and `sf` (simple features) which have loads of examples and interfaces for both base R and ggplots
 - Three common use cases:
 
   - You want to take a map of an area and add information to it by filling in the areas or placing points on the map
-  - You want to take an e.g. Google (raster) map and add information on top
+  - You want to take an e.g. Google or OpenStreetMap (raster) map and add information on top
   - You have your own shape file and want to create a plot on top of that (not covered -- see `read_sf`)
   
-## Some mapping data
+## Scenario 1: adding information to a map of a given area
 
-```{r}
+```{r, fig.show='hide'}
 library(maps)
 norway <- map_data("world", "norway")
 norway %>% glimpse
-```
-
-# Scenario 1: adding information to a map of a given area
-
-```{r}
 ggplot(norway, aes(long, lat, group = group)) +
   geom_polygon(fill = "white", colour = "grey50") + 
   coord_quickmap()
 ```
 
+## Scenario 1: plot
+
+```{r, echo = FALSE, fig.align='center', fig.height=3.5}
+ggplot(norway, aes(long, lat, group = group)) +
+  geom_polygon(fill = "white", colour = "grey50") + 
+  coord_quickmap()
+```
+
+The `group` variable is necessary so that it joins the islands correctly
+
 ## Adding information
 
-```{r}
-# norway_vals <- tibble(
-#   subregion = unique(norway$subregion),
-#   value = 1:length(unique(norway$subregion))
-# )
-# norway %>% left_join(norway_vals, 
-#                      by = 'subregion') %>% 
-#   ggplot(aes(long, lat, group = group)) +
-#   geom_polygon(fill = "white", colour = "grey50") + 
-#   coord_quickmap()
+```{r, fig.show='hide'}
+points <- tibble(
+  long = c(0, 10, 20),
+  lat = c(65, 70, 75), 
+  group = 1 # Necessary to match the fitting command
+)
+ggplot(norway, aes(long, lat, group = group)) +
+  geom_polygon(fill = "white", colour = "grey50") + 
+  coord_quickmap() + 
+  geom_point(data = points) # Add colours etc here
 ```
+
+## Plot with added information
+
+```{r, echo = FALSE, fig.align='center'}
+ggplot(norway, aes(long, lat, group = group)) +
+  geom_polygon(fill = "white", colour = "grey50") + 
+  coord_quickmap() + 
+  geom_point(data = points) # Add colours etc here
+
+```
+
+## Scenario 1 (cont): with e.g. contours
+
+```{r, fig.show='hide'}
+new_data <- MASS::mvrnorm(n = 100, 
+                          mu = c(10, 70), 
+                          Sigma = diag(10, 2)) %>% 
+  as_tibble() %>% 
+  rename(long = V1, lat = V2) %>% 
+  mutate(group = 1)
+ggplot(norway, aes(long, lat, group = group)) +
+  geom_polygon(fill = "white", colour = "grey50") + 
+  coord_quickmap() + 
+  geom_density_2d_filled(data = new_data, alpha = 0.5)
+```
+
+## Scenario 1: plot
+
+```{r, echo = FALSE, fig.align='center'}
+ggplot(norway, aes(long, lat, group = group)) +
+  geom_polygon(fill = "white", colour = "grey50") + 
+  coord_quickmap() + 
+  geom_density_2d_filled(data = new_data, alpha = 0.5)
+```
+
 
 ## Scenario 2: overlaying an existing web map
 
+```{r, fig.show='hide'}
+library(ggspatial)
+norway2 <- sf::st_as_sf(norway, coords = c("long", "lat"),
+                        crs = 4326, agr = "constant")
+ggplot() + 
+  annotation_map_tile(type = "osm") + 
+  layer_spatial(norway2)
+```
+
+## Scenario 2: plot
+
+```{r, echo = FALSE, fig.align='center', fig.height = 3}
+ggplot() + 
+  annotation_map_tile(type = "osm") + 
+  layer_spatial(norway2)
+```
+
+## Leaflet
+
+See demo in Rstudio:
+
+```{r, eval = FALSE}
+library(leaflet)
+leaflet() %>%
+  addTiles() %>% 
+  setView(lng = 10, lat = 62, zoom = 5) %>% 
+  addMarkers(lng= 10, lat= 62) %>% 
+  addCircles(lng= 11, lat= 63, radius = 5000)
+```
 
 
 ## Common problems with chloropleth maps
 
-\includegraphics[width=7cm]{election_map.png}
+\begin{center}
+\includegraphics[width=10cm]{election_map.png}
+\end{center}
 
 From [Wikipedia](https://en.wikipedia.org/wiki/Choropleth_map#/media/File:U.S._Presidential_election_margin,_2004-2016.png)
 
@@ -151,7 +228,7 @@ glimpse(sl_month)
 
 ## Plots of time series
 
-```{r}
+```{r, fig.height=3}
 sl_month %>% 
   mutate(Year2 = lubridate::date_decimal(Year)) %>%
   ggplot(aes(x = Year2, y = GMSL_mm)) + 
@@ -160,16 +237,57 @@ sl_month %>%
                    date_labels = "%Y-%M")
 ```
 
+## dygraphs - interactive time series
 
-## Dimension reduction and visualisation
+See Rstudio demo
 
-Package `ggfortify`
+```{r, eval = FALSE}
+library(dygraphs)
+sl_month %>% 
+  select(Year, GMSL_mm) %>% 
+  dygraph() %>% 
+  dyRangeSelector()
+```
+
+## Automatic plotting with `ggfortify`
+
+ - There is a function in `ggplot2` called `autoplot` that tries to take into account the object class when creating a plot
+ - Other packages can use and extend this function, for example the `forecast` package uses `autoplot` to create nice time series plots
+ - The `ggfortify` package uses this even more generally to create nice plots for a load of different classes of object
+ 
+## Principal Components Analysis and `ggfortify`
+
+```{r, fig.height = 3.5}
+library(ggfortify)
+pollen <- read.csv('../data/pollen.csv')
+pca <- prcomp(pollen[,3:9], scale. = TRUE)
+autoplot(pca, data = pollen, colour = "MTCO",
+         loadings = TRUE, loadings.label = TRUE)
+```
+
+## Cluster analysis and `ggfortify`
+
+```{r}
+autoplot(kmeans(pollen[,3:9], 3), 
+         data = pollen)
+```
+
+- Can also do generalised linear models, maps, time series, other dimension reduction methods (factor analysis and multidimensional scaling), and survival data
 
 ## Exercise
 
+Run some of the above dimension reduction techniques on the `geese` data above and produce some plots.  Try removing different columns (e.g. the time columns. What does the PCA tell you? (Post plots and answers in Slack)
+
+```{r, include = FALSE}
+pca <- prcomp(geese[,2:5], scale. = TRUE) # Or remove 2:5
+autoplot(pca, data = geese,
+         loadings = TRUE, 
+         loadings.label = TRUE)
+
+```
 
 ## Summary
 
-- X
-- Y
-- Z
+- Lots of options for high dimensional data. Start with matrix scatter plots
+- Plotting maps is a minefield. Pick a package and work through it for what you want to produce. There are many other packages and complications
+- Always a good idea to try some dimension reduction when plotting high dimensional data; `ggfortify` a simple first choice
