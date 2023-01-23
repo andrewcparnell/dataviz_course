@@ -96,9 +96,12 @@ plot_ly(data = penguins, x = ~bill_length_mm,
 
 ```{r}
 library(ggiraph)
-p <- ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width)) +
-  geom_point_interactive()
-girafe(p)
+p <- iris %>% mutate(Row.name = 1:n()) %>% 
+  ggplot(aes(x = Sepal.Length, y = Sepal.Width, colour = Species,
+             tooltip = Row.name, data_id = Species)) +
+           geom_point_interactive()
+x <- girafe(ggobj = p, width = 10)
+print(x)
 ```
 
 ## Part 3: `shiny`
