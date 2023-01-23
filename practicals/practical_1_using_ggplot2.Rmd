@@ -1,0 +1,279 @@
+---
+title: 'Day 1: Self-guided practical - creating ggplot2 workflows'
+author: "Andrew Parnell"
+output:
+  html_document:
+    toc: true
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
+  pdf_document: default
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+rm(list=ls()) # Clear the workspace
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+library(tidyverse)
+```
+
+## Introduction
+
+Welcome to the first user-guided practical on using ggplot2. In this practical you will:
+
+- Explore some data sets
+- Create some basic and not so basic ggplots
+- Customise them to get into publishable quality
+
+You should work your way through the questions below and put your (virtual) hand up if you get stuck. There is an answer script given at the bottom but please try not to use it unless you are completely stuck and cannot ask a question.
+
+***
+
+You can run the code from these practicals is by loading up the `.Rmd` (Rmarkdown) file in the same directory in Rstudio. Feel free to add in your own answers, or edit the text to give yourself extra notes. You can also run the code directly by highlighting the relevant code and clicking `Run`. Much of this material overlaps with the class slides so sometimes if you get stuck you might get a clue by looking at the `.Rmd` file in the `slides` folder.
+
+One final small note: if you are copying R commands from the pdf or html files into your R script or console window sometimes the inverted commas can copy across incorrectly. If you get a weird message saying `Error: unexpected input` you usually just need to delete/replace the inverted commas.
+
+
+## Task set 1: pollen data
+
+The pollen data is located in the `data` directory. It contains the set of modern pollen counts and their associated climates. The variables are: GDD5 (Growing degree days above 5C), MTCO (Mean temperature of the coldest month), and pollen counts of different taxa (Abies - Graminaea). The main goal is to learn which pollen counts prefer which types of climate.
+
+Tasks:
+
+1. Load in the data and check how many variables there are. Create either individual (histogram) or joint (e.g. scatter) plots of the data to explore the basic set of relationships. Note down any interesting features.
+
+1. Create a scatter plot of GDD5 vs MTCO and think about whether that relationship is expected (i.e. why are there data points in some locations but not in others?). Add labels and titles to your plot to make sure that it is publication ready. Change the axis breaks so that it shows the GDD5 values every 1000 units, and the MTCO values every 10 units.
+
+1. Pick one of the pollen taxa and create 3D plots which have MTCO and GDD5 on the x and y axes respectively, and use the colour scale to show one of  the pollen variety values. Experiment with a viridis colour scheme and some transparency. Try to interpret what type of climate this pollen taxon prefers.
+
+1. A major problem with this data is that of zero inflation. Create a `dplyr` pipeline that removes all zero values and re-creates the plot from  the previous step. 
+
+1. Create a version of your plots above that facets across all of the pollen varieties and so produces a complete picture of all the pollen taxa. Get it publication ready; i.e. nice axis labels, titles, colours, etc.
+
+## Task set 2: airquality
+
+The `airquality` data set is included with R. You can find a description of the data at `help(airquality)` and can get at it simply by typing `airquality` at the R command prompt. Let's suppose we're interested in predicting the variable `Ozone` from the other variables and creating some plots
+
+Tasks:
+
+1. First create some plots of the variables and make sure you understand the relationship between them. Hint: A good start can be found in the `help(airquality)` file in the example at the bottom of that page. (You could skip ahead to Class 4 and create a nice `ggpairs` version of that plot)
+
+1. Fit a linear regression model using `lm` with `Ozone` as the response and `Wind` as the covariate. Create a scatter plot of `Wind` against `Ozone` and use `geom_abline` to add in the fitted line. Compare the results to using `geom_smooth(method = 'lm')`
+
+1. Extract the residuals of the model, create a scatter plot of the fitted values against the residuals and a histogram of the residuals. Are the residual assumptions met? 
+
+1. Try another model but this time using the log of Ozone instead as the response. Does the model fit better? Create a plot of `Wind` vs `Ozone` using the log scale and add the fitted line.
+ 
+1. Using the plots above identify the one strange observation and see if you can work out what happened that day.
+ 
+1. Use the `predict` function to get predicted log Ozone levels across a grid of Wind values. Use the option `interval = 'confidence'` to get a confidence interval of values. Include these in your plot; again check whether this matches `geom_smooth(method = 'lm')`.
+
+## Task set 3: horseshoe data
+
+1. Load in the `horseshoe.rds` file using the `readRDS` function.  Familiarise yourself with the data structure from the `data_description.txt` file. Create some basic plots of the data and explore the structure between the variables.
+
+1. Create a binary variable which contains only whether the satellite variable is >0 or not. We will use this as our response variable. Create a plot which shows the relationship of this variable with `width`.
+
+1. Fit a binomial glm (a logistic regression) with the binary variable as the response and `width` as a covariate. Create a plot of the fitted values on top of a scatter plot of the data (hint: width on x-axis, binary response variable on y-axis. Use the `predict` function again but with `type = 'response'` to get the fitted values)
+
+1. Follow similary steps to that of Task Aet 2 to create a plot of the data against the fitted mean with a confidence interval for the fitted line
+
+## Answers
+
+<details>
+  <summary>Task set 1</summary>
+```{r, ts1}
+pollen <- read_csv(file = "../data/pollen.csv")
+pollen %>% glimpse
+
+# 1. Individual and joint plots
+ggplot(data = pollen, aes(x = GDD5)) + 
+  geom_histogram()
+ggplot(data = pollen, aes(x = MTCO)) + 
+  geom_histogram()
+ggplot(data = pollen, aes(x = Abies)) + 
+  geom_histogram() # Lots of zeros
+
+ggplot(data = pollen, aes(x = GDD5, y = Gramineae)) + 
+  geom_point() # Could look at a few more of these
+
+# 2. Scatter plot of climate varaibles
+ggplot(data = pollen, aes(x = GDD5, y = MTCO)) + 
+  geom_point() + 
+  labs(x = "Growing degree days above 5C", # Bonus marks if you get the degere symbol!
+       y = "Mean temperature of the coldest month",
+       title = "Scatter plot of climate variables",
+       subtitle = "Pollen data set") + 
+  scale_x_continuous(breaks = seq(0, 7000, by = 1000)) +
+  scale_y_continuous(breaks = seq(-50, 20, by = 10)) +
+  theme_minimal()
+
+# 3. Using colour
+ggplot(data = pollen, aes(x = GDD5, y = MTCO, colour = Picea)) + 
+  geom_point(alpha = 0.5) + 
+  labs(x = "Growing degree days above 5C", # Bonus marks if you get the degere symbol!
+       y = "Mean temperature of the coldest month",
+       title = "Scatter plot of climate variables",
+       subtitle = "Pollen data set") + 
+  scale_colour_viridis_c(option = "A") + # Magma is my favourite
+  scale_x_continuous(breaks = seq(0, 7000, by = 1000)) +
+  scale_y_continuous(breaks = seq(-50, 20, by = 10)) +
+  theme_minimal()
+
+# 4. Remove the zeros
+pollen %>% filter(Picea > 0) %>% 
+  ggplot(aes(x = GDD5, y = MTCO, colour = Picea)) + 
+  geom_point(alpha = 0.7) + 
+  labs(x = "Growing degree days above 5C", # Bonus marks if you get the degere symbol!
+       y = "Mean temperature of the coldest month",
+       title = "Scatter plot of climate variables",
+       subtitle = "Taxa: Picea") + 
+  scale_colour_viridis_c(option = "A") + # Magma is my favourite
+  scale_x_continuous(breaks = seq(0, 7000, by = 1000)) +
+  scale_y_continuous(breaks = seq(-50, 20, by = 10)) +
+  theme_minimal()
+# Bonus points if you can re-write this to specify the taxon as a variable
+
+# 5. Do it for all the taxa
+pollen %>% pivot_longer(cols = Abies:Gramineae, 
+                        names_to = "Taxon", 
+                        values_to = "Count") %>% 
+  filter(Count > 0) %>% 
+  ggplot(aes(x = GDD5, y = MTCO, colour = Count, group = Taxon)) + 
+  geom_point(alpha = 0.3) + 
+  labs(x = "Growing degree days above 5C", # Bonus marks if you get the degere symbol!
+       y = "Mean temperature of the coldest month",
+       title = "Scatter plot of climate variables",
+       subtitle = "Taxa: Picea") + 
+  scale_colour_viridis_c(option = "A") + # Magma is my favourite
+  theme_minimal() + 
+  facet_wrap(~ Taxon)
+# Other things that might be nice to try - making the points smaller
+# putting the counts on a log scale? Others?
+```
+</details>  
+  
+<details>
+  <summary>Task set 2</summary>
+```{r ts2}
+# 1. Basic plots
+airquality %>% glimpse
+library(GGally) # Cheating - this is from class 4
+ggpairs(airquality)
+# Seems to be interesting relationship between Wind, Temp and Ozone. Less obvious relationship between Solar and Ozone. Unsurprisingly relationship between month and temp non-linear
+
+# 2. Linear regression model
+mod_1 = lm(Ozone ~ Wind, data = airquality)
+summary(mod_1) # Strong negative relationships
+
+coefs <- summary(mod_1)$coefficients
+ggplot(airquality, aes(Wind, Ozone)) + 
+  geom_point() + 
+  geom_abline(intercept = coefs[1,1], slope = coefs[2,1])
+
+# 3. Residual assumptions
+res_1 <- tibble(residuals = mod_1$residuals,
+              fitted = mod_1$fitted.values)
+ggplot(res_1, aes(x = residuals)) + 
+  geom_histogram() # A little bit skewed?
+ggplot(res_1, aes(x = fitted, y = residuals)) + 
+  geom_point() + 
+  geom_hline(yintercept = 0) # Again a bit of a pattern?
+
+# 4. log Ozone model
+mod_2 = lm(log(Ozone) ~ Wind, data = airquality)
+summary(mod_2)
+res_2 <- tibble(residuals = mod_2$residuals,
+              fitted = mod_2$fitted.values)
+ggplot(res_2, aes(x = residuals)) + 
+  geom_histogram() # One crazy observation?
+ggplot(res_2, aes(x = fitted, y = residuals)) + 
+  geom_point() + 
+  geom_hline(yintercept = 0) # A bit better but one mad observation!
+
+# 5. Which is the weird observation
+which.min(mod_2$residuals) # Is it observations 19 or 21???
+airquality[c(19,21),] # It's definitely observation 21. Has an Ozone value of 1. Possibly incorrect?
+
+# 6. Plot with confidence interval
+wind_grid <- data.frame(Wind = seq(min(airquality$Wind), 
+                 max(airquality$Wind),
+                 length.out = 100))
+log_ozone_pred <- as.matrix(predict(mod_2, newdata = wind_grid,
+                          interval = 'confidence'))
+pred_tibble <- tibble(
+  Wind_grid = wind_grid$Wind,
+  Ozone_pred = log_ozone_pred[,'fit'],
+  Ozone_low95 = log_ozone_pred[,'lwr'],
+  Ozone_hi95 = log_ozone_pred[,'upr']
+)
+ggplot(airquality, aes(x = Wind, y = log(Ozone))) + 
+  geom_point() + 
+  geom_line(data = pred_tibble, 
+            aes(x = Wind_grid, y = Ozone_pred), col = 'red') +
+  geom_line(data = pred_tibble, 
+            aes(x = Wind_grid, y = Ozone_low95), col = 'red',
+            linetype = 2) +
+  geom_line(data = pred_tibble, 
+            aes(x = Wind_grid, y = Ozone_hi95), col = 'red',
+            linetype = 2)
+# Bonus points if you use e.g. geom_ribbon to get a nicer ribbon
+
+# Fun extra task: use the option `interval = 'prediction'` instead. Re-create the plot so it now has both the 95% confidence and predicted lines. Use transparency to create a nice plot using geom_ribbon. 
+```
+</details>
+
+<details>
+  <summary>Task set 3</summary>
+```{r ts3}
+horseshoe = readRDS(file = '../data/horseshoe.rds')
+horseshoe %>% glimpse
+
+# 1. Plot the data
+library(GGally)
+ggpairs(horseshoe) # Again cheating - from class 4
+
+# Response variable is satell so perhaps explore more
+ggplot(horseshoe, aes(x = spine, y = satell)) + 
+         geom_boxplot() + coord_flip()
+ggplot(horseshoe, aes(x = color, y = satell)) + 
+         geom_boxplot() + coord_flip()
+# Not an obvious relationship with spine, but perhaps something aout colour?
+
+# 2. Create the binary variable and plot
+horseshoe <- horseshoe %>% 
+  mutate(satell_bin = as.integer(horseshoe$satell > 0))
+
+ggplot(horseshoe, aes(group = satell_bin, x = width)) + 
+  geom_boxplot()
+# Not a great plot - must be a better way of doing this?
+
+
+# 3. Logistic regression model
+logistic_mod = glm(satell_bin ~ width, data = horseshoe,
+                   family = 'binomial')
+summary(logistic_mod) # Strong relationship
+
+width_grid <- data.frame(width = seq(min(horseshoe$width),
+                                     max(horseshoe$width),
+                                     length.out = 100))
+satell_pred <- as.matrix(predict(logistic_mod, 
+                                 newdata = width_grid,
+                                 type = 'response'))
+pred_tibble <- tibble(
+  width_grid = width_grid$width,
+  satell_pred = satell_pred
+)
+ggplot(horseshoe, aes(x = width, y = satell_bin)) + 
+  geom_point() + 
+  geom_line(data = pred_tibble, 
+            aes(x = width_grid, y = satell_pred), col = 'red') + 
+  labs(y = "Probability of a satellite",
+       x = "Width") + 
+  theme_minimal()
+```
+</details>
+
+
+

@@ -8,7 +8,7 @@ geese_isotopes.csv contains a bivariate time series in irregular time of geese s
 
 horseshoe.csv contains data from a study (Brockman, Ethology, 1996) on nesting horseshoe crabs. The response variable is satell: the number of satellites (other males residing nearby). The covariates are the female crabs colour (color; 1 = light medium, 2 = medium, 3 = dark medium, 4 = dark), spine condition (1 = both good, 2 = one worn or broken, 3 = both worn or broken), width (cm), and weight (kg) 
 
-pollen.csv is a set of modern pollen counts and their associated climates. The variables are: GDD5 (Growing degree days about 5C), MTCO (Mean temperature of the coldest month), pollen counts of taxa (Abies - Graminaea). 
+pollen.csv is a set of modern pollen counts and their associated climates. The variables are: GDD5 (Growing degree days above 5C), MTCO (Mean temperature of the coldest month), pollen counts of taxa (Abies - Graminaea). 
 
 sea_level.csv is the global average sea level data set created from tide gauges around the world. The columns include year AD, global mean sea level (mm), and a 1-sigma measurement error (also in mm).  From Church and White (2011). Also includes a monthly version in sea_level_monthly.
 
