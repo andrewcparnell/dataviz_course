@@ -15,7 +15,8 @@ editor_options:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(dev = 'pdf', fig.height = 4)
+knitr::opts_chunk$set(dev = 'pdf', fig.height = 4,
+                      warning = FALSE, message = FALSE)
 library(tidyverse)
 ```
 
@@ -113,7 +114,12 @@ ggplot(horseshoe, aes(x = color, y = width)) +
 
 ## Changing lines and points
 
-thickness styles, line types, point types
+```{r, fig.height = 4}
+ggplot(horseshoe, aes(x = width, y = weight)) + 
+  geom_point(aes(colour = color, size = color, shape = color))
+```
+
+Also `linewidth` and `linetype` in `geom_line`
 
 ## Adding smoothers and other geoms
 
@@ -141,7 +147,7 @@ ggplot(horseshoe, aes(x = width, y = weight)) +
   geom_rug()
 ```
 
-- Change which axes are used with the `sides = `trbl` argument
+- Change which axes are used with the `sides = "trbl"` argument
 - Use other arguments (`alpha`, `colour`, `linewidth`) to change appearance
 
 ## Facets
@@ -214,7 +220,7 @@ ggplot(horseshoe, aes(x = width, y = weight)) +
 
 You can do this using `annotate`, or you can use:
 
-```{r, fig.height=3}
+```{r, fig.height=2.5}
 ggplot(horseshoe, aes(x = width, y = weight)) + 
   geom_point() + 
   geom_hline(yintercept = 3) + 
