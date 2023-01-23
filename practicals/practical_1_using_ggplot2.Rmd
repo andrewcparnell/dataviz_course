@@ -83,7 +83,7 @@ Tasks:
 
 <details>
   <summary>Task set 1</summary>
-```{r, ts1}
+```{r, ts1, eval = FALSE}
 pollen <- read_csv(file = "../data/pollen.csv")
 pollen %>% glimpse
 
@@ -156,7 +156,7 @@ pollen %>% pivot_longer(cols = Abies:Gramineae,
   
 <details>
   <summary>Task set 2</summary>
-```{r ts2}
+```{r ts2, eval = FALSE}
 # 1. Basic plots
 airquality %>% glimpse
 library(GGally) # Cheating - this is from class 4
@@ -226,7 +226,7 @@ ggplot(airquality, aes(x = Wind, y = log(Ozone))) +
 
 <details>
   <summary>Task set 3</summary>
-```{r ts3}
+```{r ts3, eval = FALSE}
 horseshoe = readRDS(file = '../data/horseshoe.rds')
 horseshoe %>% glimpse
 
