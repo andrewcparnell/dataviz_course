@@ -2,7 +2,7 @@
 # A quick reminder of the panels in Rstudio
 # General workflow: reminder of how to use scripts
 # Projects vs setwd
-# Code styles including Styler
+# Code styles including styler
 # Plots vs Viewer vs Presentation
 # Starting code with rm(list = ls()) vs CMD/CTRL-Shift-0
 # Code sections and collapsing
@@ -169,7 +169,7 @@ island_info <-
     island = c("Biscoe", "Dream", "Torgersen"),
     mean_temp = c(-5, -4, 1)
   )
-penguins %>% left_join(island_info, by = "island")
+penguins %>% left_join(island_info, by = "island") %>% glimpse
 
 # Other methods allow for richer joins across multiple linking variables
 

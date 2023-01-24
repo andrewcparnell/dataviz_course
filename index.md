@@ -19,7 +19,8 @@ Time  | Class
 9:00-9:15 | Break
 9:15-10:15 | [Introduction to ggplot2](https://andrewcparnell.github.io/dataviz_course/slides/class_2_ggplot2.pdf)
 10:15-10:30 | Break 
-10:30-11:30 | Guided practical: Revision on tidyverse [(R code)](https://andrewcparnell.github.io/dataviz_course/practicals/tidyverse_revision.R) and a work flow for ggplot2 [(R code)](https://andrewcparnell.github.io/dataviz_course/practicals/ggplot2_basics.R)
+10:30-11:15 | Guided practical: Revision on tidyverse [(R code)](https://andrewcparnell.github.io/dataviz_course/practicals/tidyverse_revision.R) and a work flow for ggplot2 [(R code)](https://andrewcparnell.github.io/dataviz_course/practicals/ggplot2_basics.R)
+11:15-11:30 | Break 
 11:30-12:30 | [Customisation of ggplots](https://andrewcparnell.github.io/dataviz_course/slides/class_3_more_ggplot2.pdf)
 12:30-13:30 | Lunch
 13:30-15:00 | Self-guided practical [(html)](https://andrewcparnell.github.io/dataviz_course/practicals/practical_1_using_ggplot2.html) 
@@ -34,7 +35,8 @@ Time  | Class
 9:00-9:15 | Break
 9:15-10:15 | [Interactive visualisations](https://andrewcparnell.github.io/dataviz_course/slides/class_5_interactive.html)
 10:15-10:30 | Break 
-10:30-11:30 | Guided practical: Some advanced workflows for interactive visualisations [(R code)](https://andrewcparnell.github.io/dataviz_course/practicals/tutor_2_advanced_workflows.R)
+10:30-11:15 | Guided practical: Some advanced workflows for interactive visualisations [(R code)](https://andrewcparnell.github.io/dataviz_course/practicals/tutor_2_advanced_workflows.R)
+11:15-11:30 | Break 
 11:30-12:30 | [Visualising machine learning and statistical model output](https://andrewcparnell.github.io/dataviz_course/slides/class_6_ML_viz.pdf)
 12:30-13:30 | Lunch
 13:30-15:00 | Self-guided practical [(html)](https://andrewcparnell.github.io/dataviz_course/practicals/practical_2_test_your_skills.html) 

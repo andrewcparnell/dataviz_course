@@ -116,7 +116,7 @@ ggplot(horseshoe, aes(x = color, y = width)) +
 
 ```{r, fig.height = 4}
 ggplot(horseshoe, aes(x = width, y = weight)) + 
-  geom_point(aes(colour = color, size = color, shape = color))
+  geom_point(aes(colour = color, shape = spine))
 ```
 
 Also `linewidth` and `linetype` in `geom_line`
@@ -220,7 +220,7 @@ ggplot(horseshoe, aes(x = width, y = weight)) +
 
 You can do this using `annotate`, or you can use:
 
-```{r, fig.height=2.5}
+```{r, fig.height=2}
 ggplot(horseshoe, aes(x = width, y = weight)) + 
   geom_point() + 
   geom_hline(yintercept = 3) + 
@@ -335,8 +335,6 @@ ggplot(horseshoe, aes(x = satell, group = spine,
 
 ## Ridge line plots
 
-Use `ggridges`
-
 ```{r, fig.height=3, message=FALSE}
 library(ggridges)
 ggplot(horseshoe, aes(x = satell, y = spine, 
@@ -439,9 +437,9 @@ Most of the geoms we have met have their own individual features, for example:
 
 - `geom_bar` has special functions for how to fill the bars, whether to stack them or not, widths of the bars
 - `geom_boxplot` has many options to change how the boxes and whiskers are arranged, and how outliers are dealt with
-- `geom_density` has controls on the bandwidth, which kernel is used, and
+- `geom_density` has controls on the bandwidth and which kernel is used
 
-For all of these (and the others we have met) see the help files to fully understand
+For all of these (and the others we have met) see the help files to fully understand the options
 
 ## Exercise
 

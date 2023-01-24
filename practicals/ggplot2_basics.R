@@ -72,7 +72,7 @@ p <- ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm)) +
   geom_point()
 
 # axis labels and titles - use \n to separate over lines
-p + xlab("Engine size") +
+p + xlab("Engine size") + # CHANGE THIS
   ylab("Highway miles\nper gallon") +
   ggtitle("A scatter plot")
 
@@ -105,7 +105,7 @@ p + scale_x_continuous(
 # Reverse an axis
 p + scale_x_reverse()
 # Change to a log scale
-p + scale_y_log10()
+p + scale_x_log10()
 # Use + scale_y_continuous(trans = "log") for natural log scale
 # Even change the whole coordinate system
 p + coord_flip()
@@ -113,7 +113,7 @@ p + coord_polar()
 
 # Facets
 # Break up into multiple panels using a formula
-p + facet_wrap(~species) # 3 columns, 1 row
+p + facet_wrap(~ species) # 3 columns, 1 row
 p + facet_wrap(species ~ year) # 3 columns, 3 rows
 p + facet_grid(island ~ species)
 # NB facet wrap wraps things round in multiple columns/rows, facet_grid forces things onto single rows/columns (perhaps slightly different to what I said in the lecture)
@@ -145,12 +145,12 @@ p <- ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm)) +
   geom_point()
 p + geom_smooth() # Default is loess for smaller data sets
 # Also by default includes a 95% confidence interval
-p + geom_smooth(method = "lm") # Oher options: glm, gam, ...
+p + geom_smooth(method = "lm") # Other options: glm, gam, ...
 p + geom_smooth(method = "gam")
 # The smooth will automatically split by groups
 p <- ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, colour = species)) +
   geom_point()
-p + geom_smooth()
+p + geom_smooth(method = 'lm')
 
 # Other useful stats:
 p + geom_quantile() # Quantile regression
@@ -167,10 +167,10 @@ ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm)) +
   geom_point()
 # with
 ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm)) +
-  geom_point(position = "jitter")
+  geom_point(position = "jitter", alpha = 0.5)
 # with
 ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm)) +
-  geom_point() +
+  # geom_point() +
   geom_jitter(width = 0.2, height = 0.5)
 
 # Add a line with geom_abline
@@ -208,7 +208,7 @@ p + theme(legend.title = element_blank())
 # Changing the legend title is fiddlier as it involves playing with the structure of the colours in the elegend
 p + scale_colour_brewer(name = "A new title") # Note the change in colours
 # Change the legend font
-p + theme(legend.title = element_text(family = "Courier"))
+p + theme(legend.title = element_text(family = "Courier", face = "italic" ))
 # Note that above we're using element_text and element_blank. These are ggplot's special functions for setting text types (font, size, colour, etc). element_blank removes everything
 
 # Advanced colour scales
@@ -278,7 +278,7 @@ ggplot(glob_temp, aes(x = Year, y = J.D, colour = J.D)) +
   theme_bw() + # Nicer theme
   scale_x_continuous(breaks = seq(1880, 2020, by = 10)) + # Better x-axis every 10 years
   scale_color_viridis(option = "A") + # Viridis colour palette
-  ylab(TeX("Temperature\nanomaly in ^oC")) + # Proper axis label with
+  ylab(TeX("Temperature\nanomalyin $^$degree$C$")) + # Proper axis label with
   ggtitle(TeX("NASA global surface temperature data (mean $\\pm$ 2 standard deviations)")) +
   theme(axis.title.y = element_text(angle = 0, vjust = 1, hjust = 0)) + # Put y-axis label correctly
   theme(legend.position = "none") + # Remove legend
@@ -290,7 +290,7 @@ ggplot(glob_temp, aes(x = Year, y = J.D, colour = J.D)) +
 # A nice map - adjusted from http://docs.ggplot2.org/current/geom_map.html
 library(maps)
 crimes <- data.frame(state = tolower(rownames(USArrests)), USArrests)
-crimesm <- melt(crimes, id = 1)
+crimesm <- reshape2::melt(crimes, id = 1)
 crimesm$variable2 <- factor(crimesm$variable, labels = c("Murder arrests (per 100,000 people)", "Assault arrests (per 100,000)", "Percent urban population", "Rape arrests (per 100,000)"))
 
 states_map <- map_data("state")

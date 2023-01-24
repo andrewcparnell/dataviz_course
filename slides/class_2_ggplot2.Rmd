@@ -139,7 +139,7 @@ ggplot(data = penguins,
 
 ## Changing the coordinates
 
-```{r, warning=FALSE, fig.height = 3}
+```{r, warning=FALSE, fig.height = 2}
 ggplot(data = penguins, 
        aes(x = bill_length_mm, y = flipper_length_mm)) + 
   geom_point() + 
@@ -178,8 +178,8 @@ Every body spend 5 minutes taking this plot command and adding basic customisati
 
 ```{r, warning=FALSE, fig.height = 3.5}
 ggplot(data = penguins, 
-       aes(x = sex, y = flipper_length_mm)) + 
-  geom_boxplot()
+       aes(x = body_mass_g, y = flipper_length_mm)) + 
+  geom_point()
 ```
 
 ## Summary

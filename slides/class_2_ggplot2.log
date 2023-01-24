@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.4.19)  24 JAN 2023 13:59
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.4.19)  24 JAN 2023 13:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**class_3_more_ggplot2.tex
-(./class_3_more_ggplot2.tex
+**class_2_ggplot2.tex
+(./class_2_ggplot2.tex
 LaTeX2e <2021-11-15> patch level 1
 L3 programming layer <2022-02-24> (/usr/local/texlive/2022/texmf-dist/tex/latex
 /beamer/beamer.cls
@@ -986,8 +986,8 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 File: l3backend-pdftex.def 2022-02-07 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count348
 \l__pdf_internal_box=\box78
-) (./class_3_more_ggplot2.aux)
-\openout1 = `class_3_more_ggplot2.aux'.
+) (./class_2_ggplot2.aux)
+\openout1 = `class_2_ggplot2.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 157.
 LaTeX Font Info:    ... okay on input line 157.
@@ -1169,7 +1169,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmss' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-(./class_3_more_ggplot2.nav)
+(./class_2_ggplot2.nav)
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
 58.
 (/usr/local/texlive/2022/texmf-dist/tex/latex/lm/t1lmtt.fd
@@ -1242,505 +1242,288 @@ Overfull \vbox (52.53339pt too high) detected at line 158
 [1
 
 {/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./mayno
-oth_uni_logo.jpg>] [2
+oth_uni_logo.jpg>]
+\openout4 = `class_2_ggplot2.vrb'.
+
+(./class_2_ggplot2.vrb) [2
 
 ]
-\openout4 = `class_3_more_ggplot2.vrb'.
+\openout4 = `class_2_ggplot2.vrb'.
 
-(./class_3_more_ggplot2.vrb
-Overfull \hbox (73.05756pt too wide) in paragraph at lines 34--34
-[]\T1/lmtt/m/n/10.95 ## $ color  <fct> medium, dark medium, light medium, dark 
-medium, dark medium, me~[] 
- []
-
-
-Overfull \hbox (73.05756pt too wide) in paragraph at lines 34--34
-[]\T1/lmtt/m/n/10.95 ## $ spine  <fct> both worn or broken, both worn or broken
-, both good, both worn ~[] 
- []
-
-
-Overfull \hbox (73.05756pt too wide) in paragraph at lines 34--34
-[]\T1/lmtt/m/n/10.95 ## $ width  <dbl> 28.3, 22.5, 26.0, 24.8, 26.0, 23.8, 26.5
-, 24.7, 23.7, 25.6, 24.~[] 
- []
-
-
-Overfull \hbox (73.05756pt too wide) in paragraph at lines 34--34
-[]\T1/lmtt/m/n/10.95 ## $ satell <int> 8, 0, 9, 0, 4, 0, 0, 0, 0, 0, 0, 0, 11, 
-0, 14, 8, 1, 1, 0, 5, 4~[] 
- []
-
-
-Overfull \hbox (73.05756pt too wide) in paragraph at lines 34--34
-[]\T1/lmtt/m/n/10.95 ## $ weight <dbl> 3.05, 1.55, 2.30, 2.10, 2.60, 2.10, 2.35
-, 1.90, 1.95, 2.15, 2.1~[] 
- []
-
-)
-Overfull \vbox (2.0697pt too high) detected at line 207
- []
-
-[3
+(./class_2_ggplot2.vrb) [3
 
 ]
-\openout4 = `class_3_more_ggplot2.vrb'.
+\openout4 = `class_2_ggplot2.vrb'.
 
-(./class_3_more_ggplot2.vrb
-<class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-2-1.pdf, id=38, 712.662
-5pt x 204.765pt>
-File: class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-2-1.pdf Graphic fi
-le (type pdf)
-<use class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-2-1.pdf>
-Package pdftex.def Info: class_3_more_ggplot2_files/figure-beamer/unnamed-chunk
--2-1.pdf  used on input line 13.
-(pdftex.def)             Requested size: 398.33795pt x 114.45201pt.
+(./class_2_ggplot2.vrb
+Overfull \hbox (73.05756pt too wide) in paragraph at lines 21--21
+[]\T1/lmtt/m/n/10.95 ## $ species           <fct> Adelie, Adelie, Adelie, Adeli
+e, Adelie, Adelie, Adel~[] 
+ []
+
+
+Overfull \hbox (73.05756pt too wide) in paragraph at lines 21--21
+[]\T1/lmtt/m/n/10.95 ## $ island            <fct> Torgersen, Torgersen, Torgers
+en, Torgersen, Torgerse~[] 
+ []
+
+
+Overfull \hbox (73.05756pt too wide) in paragraph at lines 21--21
+[]\T1/lmtt/m/n/10.95 ## $ bill_length_mm    <dbl> 39.1, 39.5, 40.3, NA, 36.7, 3
+9.3, 38.9, 39.2, 34.1, ~[] 
+ []
+
+
+Overfull \hbox (73.05756pt too wide) in paragraph at lines 21--21
+[]\T1/lmtt/m/n/10.95 ## $ bill_depth_mm     <dbl> 18.7, 17.4, 18.0, NA, 19.3, 2
+0.6, 17.8, 19.6, 18.1, ~[] 
+ []
+
+
+Overfull \hbox (73.05756pt too wide) in paragraph at lines 21--21
+[]\T1/lmtt/m/n/10.95 ## $ flipper_length_mm <int> 181, 186, 195, NA, 193, 190, 
+181, 195, 193, 190, 186~[] 
+ []
+
+
+Overfull \hbox (73.05756pt too wide) in paragraph at lines 21--21
+[]\T1/lmtt/m/n/10.95 ## $ body_mass_g       <int> 3750, 3800, 3250, NA, 3450, 3
+650, 3625, 4675, 3475, ~[] 
+ []
+
+
+Overfull \hbox (73.05756pt too wide) in paragraph at lines 21--21
+[]\T1/lmtt/m/n/10.95 ## $ sex               <fct> male, female, female, NA, fem
+ale, male, female, male~[] 
+ []
+
+
+Overfull \hbox (73.05756pt too wide) in paragraph at lines 21--21
+[]\T1/lmtt/m/n/10.95 ## $ year              <int> 2007, 2007, 2007, 2007, 2007,
+ 2007, 2007, 2007, 2007~[] 
+ []
+
 ) [4
 
- <./class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-2-1.pdf>]
-\openout4 = `class_3_more_ggplot2.vrb'.
+]
+<aes.png, id=44, 1156.32pt x 519.9425pt>
+File: aes.png Graphic file (type png)
+<use aes.png>
+Package pdftex.def Info: aes.png  used on input line 237.
+(pdftex.def)             Requested size: 227.60759pt x 102.34438pt.
+[5
 
-(./class_3_more_ggplot2.vrb
-<class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-3-1.pdf, id=52, 712.662
-5pt x 204.765pt>
-File: class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-3-1.pdf Graphic fi
-le (type pdf)
-<use class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-3-1.pdf>
-Package pdftex.def Info: class_3_more_ggplot2_files/figure-beamer/unnamed-chunk
--3-1.pdf  used on input line 11.
-(pdftex.def)             Requested size: 398.33795pt x 114.45201pt.
-) [5
+ <./aes.png>]
+\openout4 = `class_2_ggplot2.vrb'.
 
- <./class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-3-1.pdf>]
-\openout4 = `class_3_more_ggplot2.vrb'.
-
-(./class_3_more_ggplot2.vrb
-<class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-4-1.pdf, id=66, 712.662
-5pt x 277.035pt>
-File: class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-4-1.pdf Graphic fi
-le (type pdf)
-<use class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-4-1.pdf>
-Package pdftex.def Info: class_3_more_ggplot2_files/figure-beamer/unnamed-chunk
--4-1.pdf  used on input line 11.
-(pdftex.def)             Requested size: 398.33795pt x 154.84686pt.
+(./class_2_ggplot2.vrb
+<class_2_ggplot2_files/figure-beamer/unnamed-chunk-2-1.pdf, id=55, 712.6625pt x
+ 279.0425pt>
+File: class_2_ggplot2_files/figure-beamer/unnamed-chunk-2-1.pdf Graphic file (t
+ype pdf)
+<use class_2_ggplot2_files/figure-beamer/unnamed-chunk-2-1.pdf>
+Package pdftex.def Info: class_2_ggplot2_files/figure-beamer/unnamed-chunk-2-1.
+pdf  used on input line 11.
+(pdftex.def)             Requested size: 398.33795pt x 155.96893pt.
 )
-Overfull \vbox (39.88316pt too high) detected at line 258
+Overfull \vbox (9.7427pt too high) detected at line 252
  []
 
 [6
 
- <./class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-4-1.pdf>]
-\openout4 = `class_3_more_ggplot2.vrb'.
+ <./class_2_ggplot2_files/figure-beamer/unnamed-chunk-2-1.pdf>]
+\openout4 = `class_2_ggplot2.vrb'.
 
-(./class_3_more_ggplot2.vrb
-<class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-6-1.pdf, id=80, 712.662
-5pt x 277.035pt>
-File: class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-6-1.pdf Graphic fi
-le (type pdf)
-<use class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-6-1.pdf>
-Package pdftex.def Info: class_3_more_ggplot2_files/figure-beamer/unnamed-chunk
--6-1.pdf  used on input line 27.
-(pdftex.def)             Requested size: 191.19264pt x 74.32277pt.
+(./class_2_ggplot2.vrb
+<class_2_ggplot2_files/figure-beamer/unnamed-chunk-3-1.pdf, id=69, 711.65875pt 
+x 277.035pt>
+File: class_2_ggplot2_files/figure-beamer/unnamed-chunk-3-1.pdf Graphic file (t
+ype pdf)
+<use class_2_ggplot2_files/figure-beamer/unnamed-chunk-3-1.pdf>
+Package pdftex.def Info: class_2_ggplot2_files/figure-beamer/unnamed-chunk-3-1.
+pdf  used on input line 10.
+(pdftex.def)             Requested size: 398.33072pt x 155.06244pt.
 ) [7
 
- <./class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-6-1.pdf>]
-\openout4 = `class_3_more_ggplot2.vrb'.
+ <./class_2_ggplot2_files/figure-beamer/unnamed-chunk-3-1.pdf>]
+\openout4 = `class_2_ggplot2.vrb'.
 
-(./class_3_more_ggplot2.vrb
-<class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-7-1.pdf, id=95, 706.64p
-t x 277.035pt>
-File: class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-7-1.pdf Graphic fi
-le (type pdf)
-<use class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-7-1.pdf>
-Package pdftex.def Info: class_3_more_ggplot2_files/figure-beamer/unnamed-chunk
--7-1.pdf  used on input line 10.
-(pdftex.def)             Requested size: 398.33583pt x 156.16574pt.
+(./class_2_ggplot2.vrb
+<class_2_ggplot2_files/figure-beamer/unnamed-chunk-4-1.pdf, id=84, 711.65875pt 
+x 279.0425pt>
+File: class_2_ggplot2_files/figure-beamer/unnamed-chunk-4-1.pdf Graphic file (t
+ype pdf)
+<use class_2_ggplot2_files/figure-beamer/unnamed-chunk-4-1.pdf>
+Package pdftex.def Info: class_2_ggplot2_files/figure-beamer/unnamed-chunk-4-1.
+pdf  used on input line 10.
+(pdftex.def)             Requested size: 398.33072pt x 156.18608pt.
 ) [8
 
- <./class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-7-1.pdf>]
-\openout4 = `class_3_more_ggplot2.vrb'.
+ <./class_2_ggplot2_files/figure-beamer/unnamed-chunk-4-1.pdf>]
+\openout4 = `class_2_ggplot2.vrb'.
 
-(./class_3_more_ggplot2.vrb
-<class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-8-1.pdf, id=109, 712.66
-25pt x 204.765pt>
-File: class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-8-1.pdf Graphic fi
-le (type pdf)
-<use class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-8-1.pdf>
-Package pdftex.def Info: class_3_more_ggplot2_files/figure-beamer/unnamed-chunk
--8-1.pdf  used on input line 12.
-(pdftex.def)             Requested size: 398.33795pt x 114.45201pt.
+(./class_2_ggplot2.vrb
+<class_2_ggplot2_files/figure-beamer/unnamed-chunk-5-1.pdf, id=98, 712.6625pt x
+ 277.035pt>
+File: class_2_ggplot2_files/figure-beamer/unnamed-chunk-5-1.pdf Graphic file (t
+ype pdf)
+<use class_2_ggplot2_files/figure-beamer/unnamed-chunk-5-1.pdf>
+Package pdftex.def Info: class_2_ggplot2_files/figure-beamer/unnamed-chunk-5-1.
+pdf  used on input line 10.
+(pdftex.def)             Requested size: 398.33795pt x 154.84686pt.
 ) [9
 
- <./class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-8-1.pdf>]
-\openout4 = `class_3_more_ggplot2.vrb'.
+ <./class_2_ggplot2_files/figure-beamer/unnamed-chunk-5-1.pdf>]
+\openout4 = `class_2_ggplot2.vrb'.
 
-(./class_3_more_ggplot2.vrb) [10
+(./class_2_ggplot2.vrb
+<class_2_ggplot2_files/figure-beamer/unnamed-chunk-6-1.pdf, id=112, 712.6625pt 
+x 279.0425pt>
+File: class_2_ggplot2_files/figure-beamer/unnamed-chunk-6-1.pdf Graphic file (t
+ype pdf)
+<use class_2_ggplot2_files/figure-beamer/unnamed-chunk-6-1.pdf>
+Package pdftex.def Info: class_2_ggplot2_files/figure-beamer/unnamed-chunk-6-1.
+pdf  used on input line 11.
+(pdftex.def)             Requested size: 398.33795pt x 155.96893pt.
+) [10
 
-]
-\openout4 = `class_3_more_ggplot2.vrb'.
-
-(./class_3_more_ggplot2.vrb
-<class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-9-1.pdf, id=133, 712.66
-25pt x 204.765pt>
-File: class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-9-1.pdf Graphic fi
-le (type pdf)
-<use class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-9-1.pdf>
-Package pdftex.def Info: class_3_more_ggplot2_files/figure-beamer/unnamed-chunk
--9-1.pdf  used on input line 11.
-(pdftex.def)             Requested size: 398.33795pt x 114.45201pt.
-) [11
-
- <./class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-9-1.pdf>]
-\openout4 = `class_3_more_ggplot2.vrb'.
-
-(./class_3_more_ggplot2.vrb
-<class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-10-1.pdf, id=147, 712.6
-625pt x 204.765pt>
-File: class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-10-1.pdf Graphic f
-ile (type pdf)
-<use class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-10-1.pdf>
-Package pdftex.def Info: class_3_more_ggplot2_files/figure-beamer/unnamed-chunk
--10-1.pdf  used on input line 14.
-(pdftex.def)             Requested size: 398.33795pt x 114.45201pt.
-) [12
-
- <./class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-10-1.pdf>]
-\openout4 = `class_3_more_ggplot2.vrb'.
-
-(./class_3_more_ggplot2.vrb) [13
+ <./class_2_ggplot2_files/figure-beamer/unnamed-chunk-6-1.pdf>] [11
 
 ]
-\openout4 = `class_3_more_ggplot2.vrb'.
+\openout4 = `class_2_ggplot2.vrb'.
 
-(./class_3_more_ggplot2.vrb
-<class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-11-1.pdf, id=170, 702.6
-25pt x 193.72375pt>
-File: class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-11-1.pdf Graphic f
-ile (type pdf)
-<use class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-11-1.pdf>
-Package pdftex.def Info: class_3_more_ggplot2_files/figure-beamer/unnamed-chunk
--11-1.pdf  used on input line 17.
-(pdftex.def)             Requested size: 398.34544pt x 109.82951pt.
+(./class_2_ggplot2.vrb) [12
+
+]
+\openout4 = `class_2_ggplot2.vrb'.
+
+(./class_2_ggplot2.vrb
+<class_2_ggplot2_files/figure-beamer/unnamed-chunk-8-1.pdf, id=139, 706.64pt x 
+279.0425pt>
+File: class_2_ggplot2_files/figure-beamer/unnamed-chunk-8-1.pdf Graphic file (t
+ype pdf)
+<use class_2_ggplot2_files/figure-beamer/unnamed-chunk-8-1.pdf>
+Package pdftex.def Info: class_2_ggplot2_files/figure-beamer/unnamed-chunk-8-1.
+pdf  used on input line 13.
+(pdftex.def)             Requested size: 398.33583pt x 157.29738pt.
 )
-Overfull \vbox (37.79497pt too high) detected at line 433
+Overfull \vbox (51.87117pt too high) detected at line 347
+ []
+
+[13
+
+ <./class_2_ggplot2_files/figure-beamer/unnamed-chunk-8-1.pdf>]
+\openout4 = `class_2_ggplot2.vrb'.
+
+(./class_2_ggplot2.vrb
+<class_2_ggplot2_files/figure-beamer/unnamed-chunk-9-1.pdf, id=155, 706.64pt x 
+279.0425pt>
+File: class_2_ggplot2_files/figure-beamer/unnamed-chunk-9-1.pdf Graphic file (t
+ype pdf)
+<use class_2_ggplot2_files/figure-beamer/unnamed-chunk-9-1.pdf>
+Package pdftex.def Info: class_2_ggplot2_files/figure-beamer/unnamed-chunk-9-1.
+pdf  used on input line 12.
+(pdftex.def)             Requested size: 398.33583pt x 157.29738pt.
+)
+Overfull \vbox (1.53366pt too high) detected at line 361
  []
 
 [14
 
- <./class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-11-1.pdf>]
-\openout4 = `class_3_more_ggplot2.vrb'.
+ <./class_2_ggplot2_files/figure-beamer/unnamed-chunk-9-1.pdf>]
+\openout4 = `class_2_ggplot2.vrb'.
 
-(./class_3_more_ggplot2.vrb
-<class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-12-1.pdf, id=185, 712.6
-625pt x 277.035pt>
-File: class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-12-1.pdf Graphic f
-ile (type pdf)
-<use class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-12-1.pdf>
-Package pdftex.def Info: class_3_more_ggplot2_files/figure-beamer/unnamed-chunk
--12-1.pdf  used on input line 17.
-(pdftex.def)             Requested size: 398.33795pt x 154.84686pt.
-)
-Overfull \vbox (5.88315pt too high) detected at line 452
- []
+(./class_2_ggplot2.vrb
+<class_2_ggplot2_files/figure-beamer/unnamed-chunk-10-1.pdf, id=170, 95.35625pt
+ x 134.5025pt>
+File: class_2_ggplot2_files/figure-beamer/unnamed-chunk-10-1.pdf Graphic file (
+type pdf)
+<use class_2_ggplot2_files/figure-beamer/unnamed-chunk-10-1.pdf>
+Package pdftex.def Info: class_2_ggplot2_files/figure-beamer/unnamed-chunk-10-1
+.pdf  used on input line 12.
+(pdftex.def)             Requested size: 95.35745pt x 134.5042pt.
+) [15
 
-[15
+ <./class_2_ggplot2_files/figure-beamer/unnamed-chunk-10-1.pdf>]
+\openout4 = `class_2_ggplot2.vrb'.
 
- <./class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-12-1.pdf>]
-\openout4 = `class_3_more_ggplot2.vrb'.
-
-(./class_3_more_ggplot2.vrb) [16
-
-]
-\openout4 = `class_3_more_ggplot2.vrb'.
-
-(./class_3_more_ggplot2.vrb
-<class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-13-1.pdf, id=205, 712.6
-625pt x 277.035pt>
-File: class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-13-1.pdf Graphic f
-ile (type pdf)
-<use class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-13-1.pdf>
-Package pdftex.def Info: class_3_more_ggplot2_files/figure-beamer/unnamed-chunk
--13-1.pdf  used on input line 13.
-(pdftex.def)             Requested size: 398.33795pt x 154.84686pt.
-)
-Overfull \vbox (42.0123pt too high) detected at line 493
- []
-
-[17
-
- <./class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-13-1.pdf>]
-\openout4 = `class_3_more_ggplot2.vrb'.
-
-(./class_3_more_ggplot2.vrb
-<class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-14-1.pdf, id=219, 712.6
-625pt x 132.495pt>
-File: class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-14-1.pdf Graphic f
-ile (type pdf)
-<use class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-14-1.pdf>
-Package pdftex.def Info: class_3_more_ggplot2_files/figure-beamer/unnamed-chunk
--14-1.pdf  used on input line 15.
-(pdftex.def)             Requested size: 398.33795pt x 74.05717pt.
-) [18
-
- <./class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-14-1.pdf>]
-\openout4 = `class_3_more_ggplot2.vrb'.
-
-(./class_3_more_ggplot2.vrb
-<class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-15-1.pdf, id=233, 706.6
-4pt x 277.035pt>
-File: class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-15-1.pdf Graphic f
-ile (type pdf)
-<use class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-15-1.pdf>
-Package pdftex.def Info: class_3_more_ggplot2_files/figure-beamer/unnamed-chunk
--15-1.pdf  used on input line 13.
-(pdftex.def)             Requested size: 398.33583pt x 156.16574pt.
-<class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-16-1.pdf, id=234, 706.6
-4pt x 277.035pt>
-File: class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-16-1.pdf Graphic f
-ile (type pdf)
-<use class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-16-1.pdf>
-Package pdftex.def Info: class_3_more_ggplot2_files/figure-beamer/unnamed-chunk
--16-1.pdf  used on input line 25.
-(pdftex.def)             Requested size: 398.33583pt x 156.16574pt.
-)
-Overfull \vbox (242.40536pt too high) detected at line 539
- []
-
-[19
-
- <./class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-15-1.pdf> <./class_3
-_more_ggplot2_files/figure-beamer/unnamed-chunk-16-1.pdf>]
-\openout4 = `class_3_more_ggplot2.vrb'.
-
-(./class_3_more_ggplot2.vrb
-<class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-17-1.pdf, id=257, 706.6
-4pt x 277.035pt>
-File: class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-17-1.pdf Graphic f
-ile (type pdf)
-<use class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-17-1.pdf>
-Package pdftex.def Info: class_3_more_ggplot2_files/figure-beamer/unnamed-chunk
--17-1.pdf  used on input line 12.
-(pdftex.def)             Requested size: 398.33583pt x 156.16574pt.
+(./class_2_ggplot2.vrb
 LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 
-21.
+5.
 (/usr/local/texlive/2022/texmf-dist/tex/latex/lm/ts1lmtt.fd
 File: ts1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-<class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-18-1.pdf, id=258, 706.6
-4pt x 277.035pt>
-File: class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-18-1.pdf Graphic f
-ile (type pdf)
-<use class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-18-1.pdf>
-Package pdftex.def Info: class_3_more_ggplot2_files/figure-beamer/unnamed-chunk
--18-1.pdf  used on input line 25.
-(pdftex.def)             Requested size: 398.33583pt x 156.16574pt.
-)
-Overfull \vbox (248.60066pt too high) detected at line 566
- []
+<class_2_ggplot2_files/figure-beamer/unnamed-chunk-11-1.pdf, id=184, 712.6625pt
+ x 277.035pt>
+File: class_2_ggplot2_files/figure-beamer/unnamed-chunk-11-1.pdf Graphic file (
+type pdf)
+<use class_2_ggplot2_files/figure-beamer/unnamed-chunk-11-1.pdf>
+Package pdftex.def Info: class_2_ggplot2_files/figure-beamer/unnamed-chunk-11-1
+.pdf  used on input line 11.
+(pdftex.def)             Requested size: 398.33795pt x 154.84686pt.
+) [16
 
-[20
+ <./class_2_ggplot2_files/figure-beamer/unnamed-chunk-11-1.pdf>]
+\openout4 = `class_2_ggplot2.vrb'.
 
- <./class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-17-1.pdf> <./class_3
-_more_ggplot2_files/figure-beamer/unnamed-chunk-18-1.pdf>]
-<colour_scales.jpg, id=281, 1395.2125pt x 963.6pt>
-File: colour_scales.jpg Graphic file (type jpg)
-<use colour_scales.jpg>
-Package pdftex.def Info: colour_scales.jpg  used on input line 577.
-(pdftex.def)             Requested size: 284.53017pt x 196.51004pt.
-[21
-
- <./colour_scales.jpg>]
-\openout4 = `class_3_more_ggplot2.vrb'.
-
-(./class_3_more_ggplot2.vrb) [22
+(./class_2_ggplot2.vrb) [17
 
 ]
-\openout4 = `class_3_more_ggplot2.vrb'.
+\openout4 = `class_2_ggplot2.vrb'.
 
-(./class_3_more_ggplot2.vrb
-<class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-19-1.pdf, id=295, 712.6
-625pt x 204.765pt>
-File: class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-19-1.pdf Graphic f
-ile (type pdf)
-<use class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-19-1.pdf>
-Package pdftex.def Info: class_3_more_ggplot2_files/figure-beamer/unnamed-chunk
--19-1.pdf  used on input line 13.
-(pdftex.def)             Requested size: 398.33795pt x 114.45201pt.
-) [23
-
- <./class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-19-1.pdf>]
-\openout4 = `class_3_more_ggplot2.vrb'.
-
-(./class_3_more_ggplot2.vrb
-<class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-20-1.pdf, id=310, 712.6
-625pt x 204.765pt>
-File: class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-20-1.pdf Graphic f
-ile (type pdf)
-<use class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-20-1.pdf>
-Package pdftex.def Info: class_3_more_ggplot2_files/figure-beamer/unnamed-chunk
--20-1.pdf  used on input line 14.
-(pdftex.def)             Requested size: 398.33795pt x 114.45201pt.
-) [24
-
- <./class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-20-1.pdf>]
-\openout4 = `class_3_more_ggplot2.vrb'.
-
-(./class_3_more_ggplot2.vrb
-<class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-22-1.pdf, id=324, 712.6
-625pt x 280.04625pt>
-File: class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-22-1.pdf Graphic f
-ile (type pdf)
-<use class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-22-1.pdf>
-Package pdftex.def Info: class_3_more_ggplot2_files/figure-beamer/unnamed-chunk
--22-1.pdf  used on input line 13.
-(pdftex.def)             Requested size: 398.33795pt x 156.52997pt.
-)
-Overfull \vbox (7.56625pt too high) detected at line 651
- []
-
-[25
-
- <./class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-22-1.pdf>]
-\openout4 = `class_3_more_ggplot2.vrb'.
-
-(./class_3_more_ggplot2.vrb
-<class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-23-1.pdf, id=343, 706.6
-4pt x 277.035pt>
-File: class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-23-1.pdf Graphic f
-ile (type pdf)
-<use class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-23-1.pdf>
-Package pdftex.def Info: class_3_more_ggplot2_files/figure-beamer/unnamed-chunk
--23-1.pdf  used on input line 13.
-(pdftex.def)             Requested size: 398.33583pt x 156.16574pt.
-)
-Overfull \vbox (7.20203pt too high) detected at line 666
- []
-
-[26
-
- <./class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-23-1.pdf>]
-\openout4 = `class_3_more_ggplot2.vrb'.
-
-(./class_3_more_ggplot2.vrb
-<class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-24-1.pdf, id=360, 706.6
-4pt x 204.765pt>
-File: class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-24-1.pdf Graphic f
-ile (type pdf)
-<use class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-24-1.pdf>
-Package pdftex.def Info: class_3_more_ggplot2_files/figure-beamer/unnamed-chunk
--24-1.pdf  used on input line 12.
-(pdftex.def)             Requested size: 398.33583pt x 115.42685pt.
-) [27
-
- <./class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-24-1.pdf>]
-\openout4 = `class_3_more_ggplot2.vrb'.
-
-(./class_3_more_ggplot2.vrb
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 12.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 12.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 12.
-LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <10> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 12.
-LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <7> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 12.
-LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <5> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 12.
-<class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-26-1.pdf, id=374, 407.5
-225pt x 277.035pt>
-File: class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-26-1.pdf Graphic f
-ile (type pdf)
-<use class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-26-1.pdf>
-Package pdftex.def Info: class_3_more_ggplot2_files/figure-beamer/unnamed-chunk
--26-1.pdf  used on input line 34.
-(pdftex.def)             Requested size: 191.19981pt x 129.9782pt.
-) [28
-
- <./class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-26-1.pdf>]
-\openout4 = `class_3_more_ggplot2.vrb'.
-
-(./class_3_more_ggplot2.vrb) [29
+(./class_2_ggplot2.vrb) [18
 
 ]
-\openout4 = `class_3_more_ggplot2.vrb'.
+\openout4 = `class_2_ggplot2.vrb'.
 
-(./class_3_more_ggplot2.vrb
-<class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-28-1.pdf, id=397, 695.5
-9875pt x 338.26375pt>
-File: class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-28-1.pdf Graphic f
-ile (type pdf)
-<use class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-28-1.pdf>
-Package pdftex.def Info: class_3_more_ggplot2_files/figure-beamer/unnamed-chunk
--28-1.pdf  used on input line 3.
-(pdftex.def)             Requested size: 398.33163pt x 193.70526pt.
-) [30
+(./class_2_ggplot2.vrb
+<class_2_ggplot2_files/figure-beamer/unnamed-chunk-13-1.pdf, id=211, 712.6625pt
+ x 240.9pt>
+File: class_2_ggplot2_files/figure-beamer/unnamed-chunk-13-1.pdf Graphic file (
+type pdf)
+<use class_2_ggplot2_files/figure-beamer/unnamed-chunk-13-1.pdf>
+Package pdftex.def Info: class_2_ggplot2_files/figure-beamer/unnamed-chunk-13-1
+.pdf  used on input line 14.
+(pdftex.def)             Requested size: 398.33795pt x 134.64943pt.
+) [19
 
- <./class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-28-1.pdf>]
-\openout4 = `class_3_more_ggplot2.vrb'.
+ <./class_2_ggplot2_files/figure-beamer/unnamed-chunk-13-1.pdf>]
+\openout4 = `class_2_ggplot2.vrb'.
 
-(./class_3_more_ggplot2.vrb) [31
-
-]
-\openout4 = `class_3_more_ggplot2.vrb'.
-
-(./class_3_more_ggplot2.vrb
-<class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-29-1.pdf, id=418, 707.6
-4375pt x 277.035pt>
-File: class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-29-1.pdf Graphic f
-ile (type pdf)
-<use class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-29-1.pdf>
-Package pdftex.def Info: class_3_more_ggplot2_files/figure-beamer/unnamed-chunk
--29-1.pdf  used on input line 13.
-(pdftex.def)             Requested size: 398.34018pt x 155.94592pt.
-)
-Overfull \vbox (41.89471pt too high) detected at line 784
- []
-
-[32
-
- <./class_3_more_ggplot2_files/figure-beamer/unnamed-chunk-29-1.pdf>]
-\openout4 = `class_3_more_ggplot2.vrb'.
-
-(./class_3_more_ggplot2.vrb) [33
-
-] [34
-
-] [35
+(./class_2_ggplot2.vrb) [20
 
 ]
 \tf@nav=\write6
-\openout6 = `class_3_more_ggplot2.nav'.
+\openout6 = `class_2_ggplot2.nav'.
 
 \tf@toc=\write7
-\openout7 = `class_3_more_ggplot2.toc'.
+\openout7 = `class_2_ggplot2.toc'.
 
 \tf@snm=\write8
-\openout8 = `class_3_more_ggplot2.snm'.
+\openout8 = `class_2_ggplot2.snm'.
 
-(./class_3_more_ggplot2.aux) ) 
+(./class_2_ggplot2.aux) ) 
 Here is how much of TeX's memory you used:
- 25264 strings out of 478268
- 494870 string characters out of 5846347
- 765062 words of memory out of 5000000
- 42641 multiletter control sequences out of 15000+600000
- 539377 words of font info for 131 fonts, out of 8000000 for 9000
+ 24982 strings out of 478268
+ 485350 string characters out of 5846347
+ 764035 words of memory out of 5000000
+ 42487 multiletter control sequences out of 15000+600000
+ 510577 words of font info for 87 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 128i,11n,122p,1017b,708s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvi
-ps/lm/lm-ts1.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-ec.e
-nc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmss10.pfb></usr/l
-ocal/texlive/2022/texmf-dist/fonts/type1/public/lm/lmss12.pfb></usr/local/texli
-ve/2022/texmf-dist/fonts/type1/public/lm/lmss8.pfb></usr/local/texlive/2022/tex
-mf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2022/texmf-dist/fo
-nts/type1/public/lm/lmtt12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/
-public/lm/lmtti10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/am
-sfonts/symbols/msam10.pfb>
-Output written on class_3_more_ggplot2.pdf (35 pages, 643063 bytes).
+ 128i,11n,122p,1012b,672s stack positions out of 10000i,1000n,20000p,200000b,200000s
+{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm
+/lm-ts1.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}</
+usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmss10.pfb></usr/local/
+texlive/2022/texmf-dist/fonts/type1/public/lm/lmss12.pfb></usr/local/texlive/20
+22/texmf-dist/fonts/type1/public/lm/lmss8.pfb></usr/local/texlive/2022/texmf-di
+st/fonts/type1/public/lm/lmssbx10.pfb></usr/local/texlive/2022/texmf-dist/fonts
+/type1/public/lm/lmsso10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/pu
+blic/lm/lmtt10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfo
+nts/symbols/msam10.pfb>
+Output written on class_2_ggplot2.pdf (20 pages, 330816 bytes).
 PDF statistics:
- 510 PDF objects out of 1000 (max. 8388607)
- 372 compressed objects within 4 object streams
- 105 named destinations out of 1000 (max. 500000)
- 41133 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 286 PDF objects out of 1000 (max. 8388607)
+ 207 compressed objects within 3 object streams
+ 60 named destinations out of 1000 (max. 500000)
+ 24687 words of extra memory for PDF output out of 24883 (max. 10000000)
 
