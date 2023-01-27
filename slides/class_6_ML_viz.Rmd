@@ -181,6 +181,14 @@ ranger_vi <- model_parts(ranger_exp)
 plot(ranger_vi)
 ```
 
+## DALEX (cont)
+
+```{r, echo = FALSE}
+plot(ranger_vi)
+```
+
+## DALEX (cont 2)
+
 ```{r}
 num_features = c("bill_length_mm", "bill_depth_mm", "flipper_length_mm", "body_mass_g", "year")
 penguins_pd <- model_profile(ranger_exp,
@@ -197,12 +205,8 @@ ile_ranger = predict_parts(ranger_exp,
 plot(ile_ranger)
 ```
 
-## Exercise
-
-
-
 ## Summary
 
-- So many choices for machine learning approaches and 
+- So many choices for machine learning approaches and visualisation 
 - `tidymodels` and `mlr3` seem to be best supported for fitting lots of machine learning models
 - `DALEX` has wealth of useful plots you can use to understand your model

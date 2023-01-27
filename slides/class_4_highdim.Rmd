@@ -30,7 +30,7 @@ library(tidyverse)
 
 ## New data set for this session
 
-Geese isotopes: Two isotopes taken from the blood plasms of geese together with information about each of the birds
+Geese isotopes: Two isotopes taken from the blood plasma of geese together with information about each of the birds
 
 \small 
 ```{r}
@@ -41,14 +41,14 @@ geese %>%  glimpse
 ## Multiple scatter plots: `pairs`
 
 ```{r}
-pairs(geese)
+pairs(geese[,1:5])
 ```
 
 ## ggplot version using package `GGally`
 
 ```{r, message=FALSE, warning=FALSE}
 library(GGally)
-ggpairs(geese)
+ggpairs(geese[,1:5])
 ```
 
 Very customisable too - can change what the upper, lower and diagonal panels contain or add colours to different groups
@@ -73,27 +73,27 @@ corrplot(cor(geese)) # Note: need a correlation matrix!
 
 `ggplot2` has specific functions for plotting 3D density data
 
-```{r, fig.height=3}
+```{r, fig.height=2.5}
 ggplot(geese, aes(x = d15NPl, y = d13CPl)) + 
-  geom_bin_2d()
+  geom_bin_2d() + theme(aspect.ratio = 1)
 ```
 
 - There are related functions `geom_tile` and `geom_raster` when you have a variable by which you want to colour the pixels. 
 
 ## Contour plots
 
-```{r}
+```{r,fig.height=3.5}
 ggplot(geese, aes(x = d15NPl, y = d13CPl)) + 
-  geom_density_2d_filled()
+  geom_density_2d_filled() + theme(aspect.ratio = 1)
 ```
 
 - Again, use `geom_contour` if you have a variable to directly create the contour values
 
 ## Hexagonal plots
 
-```{r}
+```{r,fig.height=3.5}
 ggplot(geese, aes(x = d15NPl, y = d13CPl)) + 
-  geom_hex()
+  geom_hex() + theme(aspect.ratio = 1)
 ```
 
 ## Plotting data with maps
@@ -148,7 +148,6 @@ ggplot(norway, aes(long, lat, group = group)) +
   geom_polygon(fill = "white", colour = "grey50") + 
   coord_quickmap() + 
   geom_point(data = points) # Add colours etc here
-
 ```
 
 ## Scenario 1 (cont): with e.g. contours
@@ -180,19 +179,19 @@ ggplot(norway, aes(long, lat, group = group)) +
 
 ```{r, fig.show='hide'}
 library(ggspatial)
-norway2 <- sf::st_as_sf(norway, coords = c("long", "lat"),
-                        crs = 4326, agr = "constant")
-ggplot() + 
-  annotation_map_tile(type = "osm") + 
-  layer_spatial(norway2)
+ggplot(new_data, aes(x = long, y = lat)) + 
+  annotation_map_tile(type = "osm") +
+  geom_density_2d_filled(alpha = 0.5) + 
+  coord_sf(crs = 4326)  
 ```
 
 ## Scenario 2: plot
 
 ```{r, echo = FALSE, fig.align='center', fig.height = 3}
-ggplot() + 
-  annotation_map_tile(type = "osm") + 
-  layer_spatial(norway2)
+ggplot(new_data, aes(x = long, y = lat)) + 
+  annotation_map_tile(type = "osm") +
+  geom_density_2d_filled(alpha = 0.5) + 
+  coord_sf(crs = 4326)  
 ```
 
 ## Leaflet
@@ -204,8 +203,8 @@ library(leaflet)
 leaflet() %>%
   addTiles() %>% 
   setView(lng = 10, lat = 62, zoom = 5) %>% 
-  addMarkers(lng= 10, lat= 62) %>% 
-  addCircles(lng= 11, lat= 63, radius = 5000)
+  addMarkers(lng = 10, lat = 62) %>% 
+  addCircles(lng = 11, lat = 63, radius = 5000)
 ```
 
 
@@ -234,7 +233,7 @@ sl_month %>%
   ggplot(aes(x = Year2, y = GMSL_mm)) + 
   geom_line() + 
   scale_x_datetime(date_breaks = "20 years",
-                   date_labels = "%Y-%M")
+                   date_labels = "%Y-%m")
 ```
 
 ## dygraphs - interactive time series
