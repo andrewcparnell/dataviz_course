@@ -35,11 +35,11 @@ Time  | Class
 9:00-9:15 | Break
 9:15-10:15 | [Interactive visualisations](https://andrewcparnell.github.io/dataviz_course/slides/class_5_interactive.html)
 10:15-10:30 | Break 
-10:30-11:15 | Guided practical: Some advanced workflows for interactive visualisations [(R code)](https://andrewcparnell.github.io/dataviz_course/practicals/tutor_2_advanced_workflows.R)
+10:30-11:15 | Guided practical: Some advanced workflows for interactive visualisations [(R code)](https://andrewcparnell.github.io/dataviz_course/practicals/high_dim_code.R)
 11:15-11:30 | Break 
 11:30-12:30 | [Visualising machine learning and statistical model output](https://andrewcparnell.github.io/dataviz_course/slides/class_6_ML_viz.pdf)
 12:30-13:30 | Lunch
-13:30-15:00 | Self-guided practical [(html)](https://andrewcparnell.github.io/dataviz_course/practicals/practical_2_test_your_skills.html) 
+13:30-15:00 | Self-guided practical [(html)](https://andrewcparnell.github.io/dataviz_course/practicals/practical_2_interactive_graphics.html) 
 
 
 
