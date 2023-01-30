@@ -11,6 +11,7 @@ output:
 classoption: aspectratio=169
 editor_options: 
   chunk_output_type: console
+runtime: shiny
 ---
 
 ```{r setup, include=FALSE}
@@ -100,8 +101,7 @@ p <- iris %>% mutate(Row.name = 1:n()) %>%
   ggplot(aes(x = Sepal.Length, y = Sepal.Width, colour = Species,
              tooltip = Row.name, data_id = Species)) +
            geom_point_interactive()
-x <- girafe(ggobj = p, width = 10)
-print(x)
+girafe(ggobj = p, width = 10)
 ```
 
 ## Part 3: `shiny`
@@ -111,12 +111,20 @@ print(x)
 - The website https://shiny.rstudio.com contains some nice examples to get started
 - See http://https://shiny.rstudio.com/gallery/ for some really impressive examples - bear in mind these are not particularly complicated to create
 
+## Example Shiny app
+
+```{r, echo = FALSE}
+library(shiny)
+shinyAppFile("app_2.R",
+             options = list(width = "100%", 
+                            height = 700))
+```
+
 ## `shiny` walkthrough
 
 - Click `File > New File > Shiny Web App`
 - Choose a name
 - Click `Run App`
-
 
 ## Part 4: animations
 
@@ -147,28 +155,37 @@ Has special function called `transition_state` which works a little bit like `fa
 
 ```{r, eval=FALSE}
 library(gganimate)
-ggplot(data = penguins, aes(x = flipper_length_mm, y = body_mass_g)) +
+library(gifski)
+p <- ggplot(data = penguins, aes(x = flipper_length_mm, 
+                                 y = body_mass_g)) +
   geom_point() +
   # Add an animation of the penguins' species over time
-  transition_states(species, transition_length = 2, state_length = 1) +
+  transition_states(species, transition_length = 2, 
+                    state_length = 1) +
   # Add a label for the current species
   labs(title = "Penguin species: {closest_state}")
+animate(p, renderer = gifski_renderer())
 ```
 
 ## More `gganimate`
 
 ```{r, eval=FALSE}
 library(gapminder)
-ggplot(gapminder, aes(gdpPercap, lifeExp, size = pop, colour = country)) +
+p <- ggplot(gapminder, aes(gdpPercap, lifeExp, 
+                           label = country,
+                           size = pop, 
+                           colour = country)) +
   geom_point(alpha = 0.7, show.legend = FALSE) +
+  #geom_text() + 
   scale_colour_manual(values = country_colors) +
   scale_size(range = c(2, 12)) +
   scale_x_log10() +
   facet_wrap(~continent) +
-  # Here comes the gganimate specific bits
   labs(title = 'Year: {frame_time}', x = 'GDP per capita', y = 'life expectancy') +
+  # Here comes the gganimate specific bits
   transition_time(year) +
   ease_aes('linear')
+animate(p, renderer = gifski_renderer())
 ```
 
 
@@ -178,10 +195,6 @@ ggplot(gapminder, aes(gdpPercap, lifeExp, size = pop, colour = country)) +
 - Lots of different transition functions for all kinds of different functionality
 - Loads of other different functions for behaviour of background data, movements between frames, scale changes, aesthetic changes, etc
 - Can output the files in a gif or other movie file using the `animate` function
-
-## Exercise
-
-- 
 
 
 ## Summary

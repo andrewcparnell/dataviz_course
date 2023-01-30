@@ -16,6 +16,7 @@ editor_options:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(dev = 'pdf', fig.height = 4,
+                      fig.align = 'center',
                       warning=FALSE, message=FALSE)
 library(tidyverse)
 ```
@@ -33,8 +34,20 @@ library(tidyverse)
 Geese isotopes: Two isotopes taken from the blood plasma of geese together with information about each of the birds
 
 \small 
+```{r, include = FALSE}
+# geese <- read.csv('../data/geese_isotopes.csv') %>% 
+#   transmute(Bird,
+#              Adult = factor(Adult, levels = c(0, 1),
+#                         labels = c('Juvenile', 'Adult')),
+#          Male = factor(Male, levels = c(0, 1),
+#                        labels = c('Female', 'Male')),
+#          d15NPl, d13CPl, time, julianday,
+#          date = make_date(year, month, day))
+# saveRDS(geese, file = '../data/geese_isotopes.rds')
+```
+
 ```{r}
-geese <- read.csv('../data/geese_isotopes.csv')
+geese <- readRDS(file = "../data/geese_isotopes.rds")
 geese %>%  glimpse
 ```
 
@@ -48,7 +61,7 @@ pairs(geese[,1:5])
 
 ```{r, message=FALSE, warning=FALSE}
 library(GGally)
-ggpairs(geese[,1:5])
+ggpairs(geese[,2:5])
 ```
 
 Very customisable too - can change what the upper, lower and diagonal panels contain or add colours to different groups
@@ -56,7 +69,7 @@ Very customisable too - can change what the upper, lower and diagonal panels con
 ## Extended ggpairs plot
 
 ```{r}
-ggpairs(geese[,1:5],
+ggpairs(geese[,2:5],
         upper = list(continuous = "density"),
         lower = list(continuous = "points"))
 ```
@@ -66,7 +79,7 @@ ggpairs(geese[,1:5],
 
 ```{r, fig.height=2.5, fig.align='center'}
 library(corrplot)
-corrplot(cor(geese)) # Note: need a correlation matrix!
+corrplot(cor(geese %>% select_if(is.numeric))) # Note: need a correlation matrix!
 ```
 
 ## 2D density plots
@@ -278,11 +291,11 @@ autoplot(kmeans(pollen[,3:9], 3),
 Run some of the above dimension reduction techniques on the `geese` data above and produce some plots.  Try removing different columns (e.g. the time columns. What does the PCA tell you? (Post plots and answers in Slack)
 
 ```{r, include = FALSE}
-pca <- prcomp(geese[,2:5], scale. = TRUE) # Or remove 2:5
+pca <- prcomp(geese %>% select_if(is.numeric), 
+              scale. = TRUE) # Or remove 2:5
 autoplot(pca, data = geese,
          loadings = TRUE, 
          loadings.label = TRUE)
-
 ```
 
 ## Summary

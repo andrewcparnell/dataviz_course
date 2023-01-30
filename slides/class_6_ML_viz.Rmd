@@ -24,8 +24,8 @@ library(tidyverse)
 
 - Quick reminder on (generalised) linear models and machine learning
 - Learn how to visualise output from (generalised) linear models using `ggfortify`
-- Look at model performance using conditional visualisations in `condviz`
-- Look at variable importance and interaction wtih `vivid`
+- Run some machine learning models using `tidymodels` and `mlr3`
+- Plot some output from machine learning models using `iml` and `DALEX`
 
 ## Generalised linear models (GLMs) in one slide
 
@@ -35,7 +35,7 @@ library(tidyverse)
 
 ## Machine learning in one slide
 
-- Statistical models using assume a linear relationship between the features and the response
+- Statistical models usually assume a linear relationship between the features and the response
 - Machine learning models by contrast usually assume a non-linear relationship with interactions between the features
 - The fitted values are usually a better fit to the data compared to those of a statistical regression model at the expense of model interpretability and uncertainty calibration
 - Machine learning has its own jargon and techniques; for example models are usually compared on data that has been left out of the fitting process
@@ -70,7 +70,7 @@ autoplot(model)
 Lots of packages for fitting machine learning models in R. Some choices:
 
 - `caret` is the original. Hundreds of different methods. Getting a bit old fashioned
-- `tidymodels` in a tidyverse style set of packages for fitting machine learning models. Links well with ggplot2
+- `tidymodels` in a tidyverse style set of packages for fitting machine learning models. Links well with `ggplot2`
 - `mlr3` very nice extendible package with a large number of different modelling strategies and output plots
 
 Most of these packages use __other packages__ to perform the machine learning in the background
@@ -142,29 +142,27 @@ library(mlr3learners)
 
 # Create a task
 penguins2 = na.omit(penguins)
-task_peng = as_task_classif(penguins2, target = "species")
-
-learner = lrn("classif.ranger")
-learner$predict_type = "prob"
-learner$train(task_peng)
-
-x = penguins2 %>% dplyr::select(island:year)
-model = Predictor$new(learner, data = x, y = penguins2$species)
+task_peng = as_task_classif(species ~ ., 
+                            data = penguins2)
+# Choose learner
+learner = lrn("classif.ranger", 
+              predict_type = "prob")
+# Split into training/test
+split = partition(task_peng, ratio = 0.8)
+# Train the learner
+learner$train(task_peng, split$train_set)
+# Predict on the test set
+prediction = learner$predict(task_peng, split$test_set)
 ```
 
 ## Feature effects: ICE and PDPs
 
 ```{r}
 num_features = c("bill_length_mm", "bill_depth_mm", "flipper_length_mm", "body_mass_g", "year")
+model = Predictor$new(learner, data = penguins2[,-1], 
+                      y = penguins2$species)
 effect = FeatureEffects$new(model, method = 'ice')
 plot(effect, features = num_features)
-```
-
-## Feature importance
-
-```{r}
-effect = FeatureImp$new(model, loss = "ce")
-effect$plot(features = num_features)
 ```
 
 ## DALEX

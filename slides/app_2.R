@@ -23,7 +23,8 @@ ui <- shinyUI(fluidPage(
   conditionalPanel(condition = "input.density == true",
                    sliderInput(inputId = "bw_adjust",
                                label = "Bandwidth adjustment:",
-                               min = 0.2, max = 2, value = 1, step = 0.2)
+                               min = 0.2, max = 2, value = 1, 
+                               step = 0.2)
   )
 
 ))
@@ -34,9 +35,9 @@ server <- shinyServer(function(input, output) {
 
   output$main_plot <- renderPlot({
     
-    p <- ggplot(faithful, aes(x = eruptions,
-                              y = after_stat(density))) + 
-      geom_histogram(bins = as.numeric(input$n_breaks)) + 
+    p <- ggplot(faithful, aes(x = eruptions)) + 
+      geom_histogram(aes(y=..density..), 
+                     bins = as.numeric(input$n_breaks)) + 
       labs(x = 'Duration (minutes)',
            main = "Geyser eruption duration")
     print(p)
@@ -57,8 +58,15 @@ server <- shinyServer(function(input, output) {
                       n = nrow(faithful))
       df <- data.frame(x = dens$x,
                        y = dens$y)
-      print(p + geom_line(data = df, 
-                          aes(x = x,y = y)))
+      p <- p + geom_line(data = df, 
+                         aes(x = x,y = y),
+                         col = 'blue')
+      
+      if (input$individual_obs) {
+        print(p + geom_rug())
+      } else {
+        print(p)
+      }
       # lines(dens, col = "blue")
     }
 

@@ -23,7 +23,8 @@ ggpairs(penguins %>% na.omit(),
 
 # Can add in more mappings
 ggpairs(penguins %>% na.omit(),
-  columns = c("species", "bill_length_mm", "sex"),
+  columns = c("species", "bill_length_mm", 
+              "flipper_length_mm", "sex"),
   upper = list(continuous = "density"),
   lower = list(
     continuous = "smooth",
@@ -138,7 +139,7 @@ ggplot(
   geom_smooth(method = "lm")
 
 # autoplot
-autoplot(mod_lm, which = 1:6, ncol = 3, label.size = 3) +
+autoplot(mod_lm, which = 1:6, ncol = 3, label.size = 1) +
   theme_minimal()
 
 # Autoplot with seasonal data

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.4.19)  27 JAN 2023 00:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.4.19)  27 JAN 2023 13:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1260,7 +1260,7 @@ LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line
 (/usr/local/texlive/2022/texmf-dist/tex/latex/lm/ts1lmtt.fd
 File: ts1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ))
-Overfull \vbox (126.18765pt too high) detected at line 256
+Overfull \vbox (126.18765pt too high) detected at line 257
  []
 
 [5
@@ -1326,7 +1326,7 @@ Package pdftex.def Info: class_6_ML_viz_files/figure-beamer/unnamed-chunk-6-1.p
 df  used on input line 13.
 (pdftex.def)             Requested size: 398.3463pt x 158.8813pt.
 )
-Overfull \vbox (39.24673pt too high) detected at line 397
+Overfull \vbox (39.24673pt too high) detected at line 398
  []
 
 [12
@@ -1340,31 +1340,21 @@ Overfull \vbox (39.24673pt too high) detected at line 397
 \openout4 = `class_6_ML_viz.vrb'.
 
 (./class_6_ML_viz.vrb
-<class_6_ML_viz_files/figure-beamer/unnamed-chunk-8-1.pdf, id=129, 701.62125pt 
-x 269.005pt>
+<class_6_ML_viz_files/figure-beamer/unnamed-chunk-8-1.pdf, id=129, 704.6325pt x
+ 269.005pt>
 File: class_6_ML_viz_files/figure-beamer/unnamed-chunk-8-1.pdf Graphic file (ty
 pe pdf)
 <use class_6_ML_viz_files/figure-beamer/unnamed-chunk-8-1.pdf>
 Package pdftex.def Info: class_6_ML_viz_files/figure-beamer/unnamed-chunk-8-1.p
-df  used on input line 11.
-(pdftex.def)             Requested size: 398.3438pt x 152.72694pt.
-) [14
+df  used on input line 13.
+(pdftex.def)             Requested size: 398.33315pt x 152.07019pt.
+)
+Overfull \vbox (9.90648pt too high) detected at line 437
+ []
+
+[14
 
  <./class_6_ML_viz_files/figure-beamer/unnamed-chunk-8-1.pdf>]
-\openout4 = `class_6_ML_viz.vrb'.
-
-(./class_6_ML_viz.vrb
-<class_6_ML_viz_files/figure-beamer/unnamed-chunk-9-1.pdf, id=146, 699.61375pt 
-x 279.0425pt>
-File: class_6_ML_viz_files/figure-beamer/unnamed-chunk-9-1.pdf Graphic file (ty
-pe pdf)
-<use class_6_ML_viz_files/figure-beamer/unnamed-chunk-9-1.pdf>
-Package pdftex.def Info: class_6_ML_viz_files/figure-beamer/unnamed-chunk-9-1.p
-df  used on input line 10.
-(pdftex.def)             Requested size: 398.3463pt x 158.8813pt.
-) [15
-
- <./class_6_ML_viz_files/figure-beamer/unnamed-chunk-9-1.pdf>]
 \openout4 = `class_6_ML_viz.vrb'.
 
 (./class_6_ML_viz.vrb
@@ -1400,66 +1390,66 @@ ability of true class (  default  )[]
 
 Overfull \hbox (107.54996pt too wide) in paragraph at lines 28--28
 []\T1/lmtt/m/n/10.95 ##   -> residuals         :  numerical, min =  0 , mean = 
- 0.03930278 , max =  0.6003044[] 
+ 0.03882649 , max =  0.6126352[] 
  []
 
-<class_6_ML_viz_files/figure-beamer/unnamed-chunk-10-1.pdf, id=161, 680.5425pt 
+<class_6_ML_viz_files/figure-beamer/unnamed-chunk-9-1.pdf, id=146, 671.50874pt 
 x 277.035pt>
+File: class_6_ML_viz_files/figure-beamer/unnamed-chunk-9-1.pdf Graphic file (ty
+pe pdf)
+<use class_6_ML_viz_files/figure-beamer/unnamed-chunk-9-1.pdf>
+Package pdftex.def Info: class_6_ML_viz_files/figure-beamer/unnamed-chunk-9-1.p
+df  used on input line 37.
+(pdftex.def)             Requested size: 398.33847pt x 164.33694pt.
+)
+Overfull \vbox (255.09004pt too high) detected at line 476
+ []
+
+[15
+
+ <./class_6_ML_viz_files/figure-beamer/unnamed-chunk-9-1.pdf>]
+<class_6_ML_viz_files/figure-beamer/unnamed-chunk-10-1.pdf, id=161, 671.50874pt
+ x 277.035pt>
 File: class_6_ML_viz_files/figure-beamer/unnamed-chunk-10-1.pdf Graphic file (t
 ype pdf)
 <use class_6_ML_viz_files/figure-beamer/unnamed-chunk-10-1.pdf>
 Package pdftex.def Info: class_6_ML_viz_files/figure-beamer/unnamed-chunk-10-1.
-pdf  used on input line 37.
-(pdftex.def)             Requested size: 398.33902pt x 162.1557pt.
-)
-Overfull \vbox (252.9088pt too high) detected at line 482
- []
-
+pdf  used on input line 481.
+(pdftex.def)             Requested size: 398.33847pt x 164.33694pt.
 [16
 
  <./class_6_ML_viz_files/figure-beamer/unnamed-chunk-10-1.pdf>]
-<class_6_ML_viz_files/figure-beamer/unnamed-chunk-11-1.pdf, id=175, 680.5425pt 
-x 277.035pt>
+\openout4 = `class_6_ML_viz.vrb'.
+
+(./class_6_ML_viz.vrb
+<class_6_ML_viz_files/figure-beamer/unnamed-chunk-11-1.pdf, id=175, 712.6625pt 
+x 261.97874pt>
 File: class_6_ML_viz_files/figure-beamer/unnamed-chunk-11-1.pdf Graphic file (t
 ype pdf)
 <use class_6_ML_viz_files/figure-beamer/unnamed-chunk-11-1.pdf>
 Package pdftex.def Info: class_6_ML_viz_files/figure-beamer/unnamed-chunk-11-1.
-pdf  used on input line 487.
-(pdftex.def)             Requested size: 398.33902pt x 162.1557pt.
-[17
+pdf  used on input line 12.
+(pdftex.def)             Requested size: 398.33795pt x 146.43126pt.
+) [17
 
  <./class_6_ML_viz_files/figure-beamer/unnamed-chunk-11-1.pdf>]
 \openout4 = `class_6_ML_viz.vrb'.
 
 (./class_6_ML_viz.vrb
-<class_6_ML_viz_files/figure-beamer/unnamed-chunk-12-1.pdf, id=189, 712.6625pt 
+<class_6_ML_viz_files/figure-beamer/unnamed-chunk-12-1.pdf, id=189, 688.5725pt 
 x 261.97874pt>
 File: class_6_ML_viz_files/figure-beamer/unnamed-chunk-12-1.pdf Graphic file (t
 ype pdf)
 <use class_6_ML_viz_files/figure-beamer/unnamed-chunk-12-1.pdf>
 Package pdftex.def Info: class_6_ML_viz_files/figure-beamer/unnamed-chunk-12-1.
 pdf  used on input line 12.
-(pdftex.def)             Requested size: 398.33795pt x 146.43126pt.
+(pdftex.def)             Requested size: 398.34265pt x 151.55602pt.
 ) [18
 
  <./class_6_ML_viz_files/figure-beamer/unnamed-chunk-12-1.pdf>]
 \openout4 = `class_6_ML_viz.vrb'.
 
-(./class_6_ML_viz.vrb
-<class_6_ML_viz_files/figure-beamer/unnamed-chunk-13-1.pdf, id=203, 688.5725pt 
-x 261.97874pt>
-File: class_6_ML_viz_files/figure-beamer/unnamed-chunk-13-1.pdf Graphic file (t
-ype pdf)
-<use class_6_ML_viz_files/figure-beamer/unnamed-chunk-13-1.pdf>
-Package pdftex.def Info: class_6_ML_viz_files/figure-beamer/unnamed-chunk-13-1.
-pdf  used on input line 12.
-(pdftex.def)             Requested size: 398.34265pt x 151.55602pt.
-) [19
-
- <./class_6_ML_viz_files/figure-beamer/unnamed-chunk-13-1.pdf>]
-\openout4 = `class_6_ML_viz.vrb'.
-
-(./class_6_ML_viz.vrb) [20
+(./class_6_ML_viz.vrb) [19
 
 ]
 \tf@nav=\write6
@@ -1473,11 +1463,11 @@ pdf  used on input line 12.
 
 (./class_6_ML_viz.aux) ) 
 Here is how much of TeX's memory you used:
- 24959 strings out of 478268
- 484506 string characters out of 5846347
- 768474 words of memory out of 5000000
- 42463 multiletter control sequences out of 15000+600000
- 515129 words of font info for 95 fonts, out of 8000000 for 9000
+ 24947 strings out of 478268
+ 484020 string characters out of 5846347
+ 768476 words of memory out of 5000000
+ 42455 multiletter control sequences out of 15000+600000
+ 515230 words of font info for 96 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,11n,122p,1011b,672s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/
@@ -1491,10 +1481,10 @@ lic/lm/lmtt10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmt
 t12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmtti10.pfb><
 /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.p
 fb>
-Output written on class_6_ML_viz.pdf (20 pages, 617408 bytes).
+Output written on class_6_ML_viz.pdf (19 pages, 613424 bytes).
 PDF statistics:
- 286 PDF objects out of 1000 (max. 8388607)
- 208 compressed objects within 3 object streams
- 60 named destinations out of 1000 (max. 500000)
- 26717 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 271 PDF objects out of 1000 (max. 8388607)
+ 198 compressed objects within 2 object streams
+ 57 named destinations out of 1000 (max. 500000)
+ 26712 words of extra memory for PDF output out of 29859 (max. 10000000)
 
